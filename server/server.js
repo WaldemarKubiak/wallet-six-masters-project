@@ -3,10 +3,8 @@ import logger from 'morgan';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import router from './api/api.js';
+import router from './api/index.js';
 import path from 'node:path';
-import { uploadDir, storeImageDir } from './middlewares/fileUpload/upload.js';
-import createFolderIsNotExist from './utils.js';
 import './config/config-passport.js';
 
 const app = express();
@@ -25,7 +23,7 @@ app.use((_, res, __) => {
 	res.status(404).json({
 		status: 'error',
 		code: 404,
-		message: 'Use api on routes: /api/contacts',
+		message: 'Use api on routes: /api',
 		data: 'Not found',
 	});
 });
@@ -52,10 +50,8 @@ const connection = mongoose.connect(uriDb, {
 connection
 	.then(() => {
 		app.listen(PORT, function () {
-			createFolderIsNotExist(uploadDir);
-			createFolderIsNotExist(storeImageDir);
 			console.log('Database connection successful');
-			console.log(`Server is running. Use our API on port ${PORT}`);
+			console.log(`Server is running. Use API on port ${PORT}`);
 		});
 	})
 	.catch(error => {
