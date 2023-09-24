@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-// import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = "https://localhost:3001";
 
