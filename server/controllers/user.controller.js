@@ -1,17 +1,15 @@
-import dotenv from "dotenv"; 
+import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { nanoid } from "nanoid";
 
 import service from "../services/user.service.js";
 import emailService from "../services/email.service.js";
 
-dotenv.config()
+dotenv.config();
 const secret = process.env.SECRET;
 
 const createUser = async (req, res, next) => {
-	const { email, password, firstName } = req.body;
-
-	console.log(req.body);
+  const { email, password, firstName } = req.body;
 
   const user = await service.getUserByEmail(email);
   if (user) {
@@ -24,16 +22,18 @@ const createUser = async (req, res, next) => {
   }
   try {
     const verificationToken = nanoid();
-	const user = await service.createUser({
-	  email,
+    const user = await service.createUser({
+      email,
       password,
-	  firstName,
-	  verificationToken
-	}
-    
-    );
+      firstName,
+      verificationToken,
+    });
 
-    await emailService.sendVerificationEmail(user.email, firstName, verificationToken);
+    await emailService.sendVerificationEmail(
+      user.email,
+      firstName,
+      verificationToken
+    );
 
     res.status(201).json({
       status: "success",
@@ -79,7 +79,7 @@ const login = async (req, res, next) => {
     status: "success",
     code: 200,
     token,
-    user: { email: user.email, firstName: user.firstName},
+    user: { email: user.email, firstName: user.firstName },
   });
 };
 
