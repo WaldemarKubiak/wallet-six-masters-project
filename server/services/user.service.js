@@ -1,6 +1,11 @@
- import User from "../schemas/user.model.js";
+import User from "../schemas/user.model.js";
 
-const createUser = async ({ email, password, firstName, verificationToken }) => {
+const createUser = async ({
+  email,
+  password,
+  firstName,
+  verificationToken,
+}) => {
   const newUser = new User({ email, firstName, verificationToken });
   newUser.setPassword(password);
   return newUser.save();
@@ -34,14 +39,6 @@ const removeToken = (id) => {
   );
 };
 
-const updateAvatar = (id, fileName) => {
-  return User.findByIdAndUpdate(
-    { _id: id },
-    { $set: { avatarURL: fileName } },
-    { new: true }
-  );
-};
-
 const setUserAsVerified = (id) => {
   return User.findByIdAndUpdate(
     { _id: id },
@@ -57,7 +54,6 @@ const service = {
   getUserByVerificationToken,
   saveToken,
   removeToken,
-  updateAvatar,
   setUserAsVerified,
 };
 
