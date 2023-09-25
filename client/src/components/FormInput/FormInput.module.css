@@ -1,5 +1,31 @@
+.inputBox {
+  border-bottom: solid 1px #e0e0e0;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
 .formInput {
-  color: purple;
-  font-size: 25px;
-  padding: 20;
+  color: black;
+  font-size: 18px;
+  padding: 8px 8px 8px 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.formInput::placeholder {
+  color: #bdbdbd;
+  /* font-family: Circe; */
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.inputIcon {
+  color: #e0e0e0;
+}
+
+.inputIcon svg {
+  width: 20px;
+  height: 20px;
 }

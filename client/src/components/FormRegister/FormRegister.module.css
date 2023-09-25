@@ -1,1 +1,5 @@
-
+.registerForm {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}

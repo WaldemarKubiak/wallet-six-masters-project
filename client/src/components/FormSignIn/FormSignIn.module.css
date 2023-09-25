@@ -1,5 +1,5 @@
-.signinForm__input {
-  color: red;
-  font-size: 40px;
-  padding: 20px;
+.signInForm {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }

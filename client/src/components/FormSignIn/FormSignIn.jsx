@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import indicative from "indicative";
 import Notiflix from "notiflix";
 
-import { BiSolidUserCircle } from "react-icons/bi";
+import { IoMdLock } from "react-icons/io";
+import { BiSolidEnvelope } from "react-icons/bi";
 
 import clsx from "clsx";
 import css from "../FormSignIn/FormSignIn.module.css";
@@ -55,12 +56,12 @@ const FormSignIn = () => {
   };
 
   return (
-    <form className={clsx(css.signinForm)} onSubmit={handleSubmit}>
+    <form className={clsx(css.signInForm)} onSubmit={handleSubmit}>
       <FormInput type="email" name="email" placeholder="E-mail">
-        <BiSolidUserCircle />
+        <BiSolidEnvelope />
       </FormInput>
       <FormInput type="password" name="password" placeholder="Password">
-        <BiSolidUserCircle />
+        <IoMdLock />
       </FormInput>
       <ButtonSubmit text="Log in" />
       <ButtonLink navigate="/register" text="Register" />

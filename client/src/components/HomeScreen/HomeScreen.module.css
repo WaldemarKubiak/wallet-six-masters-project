@@ -1,3 +1,26 @@
 .homeScreenBox {
-  color: green;
+  padding: 32px 20px 36px 20px;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.homeScreen__titleBox {
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.homeScreen__title {
+  margin: 0;
+  color: black;
+  text-align: center;
+  /* font-family: Poppins; */
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
 }
