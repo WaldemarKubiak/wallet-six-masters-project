@@ -1,12 +1,25 @@
 import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
+import { useAuth } from "./hook/useAuth/useAuth";
+import { refreshUser } from "./redux/user/userOperations";
 import { RestrictedRoute } from "./components/RestrictedRoute";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import HomePage from "./pages/homePage/HomePage";
 import Registration from "./pages/Registration/Registration";
 
 function App() {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <h2>Loading...</h2>
+  ) : (
     <>
       <Routes>
         <Route

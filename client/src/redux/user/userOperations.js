@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import Notiflix from "notiflix";
 
 axios.defaults.baseURL = "https://localhost:3001";
 
@@ -19,6 +20,10 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
+      Notiflix.Notify.init({
+        timeout: 5000,
+      });
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -32,6 +37,10 @@ export const signIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
+      Notiflix.Notify.init({
+        timeout: 5000,
+      });
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -42,6 +51,10 @@ export const signOut = createAsyncThunk("auth/signOut", async (_, thunkAPI) => {
     await axios.post("/users/logout");
     clearAuthHeader();
   } catch (e) {
+    Notiflix.Notify.init({
+      timeout: 5000,
+    });
+    Notiflix.Notify.failure(e.message);
     return thunkAPI.rejectWithValue(e.message);
   }
 });
@@ -60,6 +73,10 @@ export const refreshUser = createAsyncThunk(
 
       return res.data;
     } catch (e) {
+      Notiflix.Notify.init({
+        timeout: 5000,
+      });
+      Notiflix.Notify.failure(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
