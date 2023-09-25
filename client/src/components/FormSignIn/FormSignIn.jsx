@@ -3,9 +3,12 @@ import { useDispatch } from "react-redux";
 import indicative from "indicative";
 import Notiflix from "notiflix";
 
+import { BiSolidUserCircle } from "react-icons/bi";
+
 import clsx from "clsx";
 import css from "../FormSignIn/FormSignIn.module.css";
 
+import FormInput from "../FormInput/FormInput";
 import ButtonSubmit from "../../components/ButtonSubmit/ButtonSubmit";
 import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
@@ -53,18 +56,12 @@ const FormSignIn = () => {
 
   return (
     <form className={clsx(css.signinForm)} onSubmit={handleSubmit}>
-      <input
-        className={clsx(css.signinForm__input, css.signinForm__inputEmail)}
-        type="email"
-        name="email"
-        placeholder="E-mail"
-      ></input>
-      <input
-        className={clsx(css.signinForm__input, css.signinForm__inputPassword)}
-        type="password"
-        name="password"
-        placeholder="Password"
-      />
+      <FormInput type="email" name="email" placeholder="E-mail">
+        <BiSolidUserCircle />
+      </FormInput>
+      <FormInput type="password" name="password" placeholder="Password">
+        <BiSolidUserCircle />
+      </FormInput>
       <ButtonSubmit text="Log in" />
       <ButtonLink navigate="/register" text="Register" />
     </form>
