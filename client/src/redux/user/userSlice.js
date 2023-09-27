@@ -19,11 +19,11 @@ const authSlice = createSlice({
     importInfoData: (state) => state,
   },
   extraReducers: {
-    [register.fulfilled](state, action) {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      state.isLoggedIn = true;
-    },
+    // [register.fulfilled](state, action) {
+    //   state.user = action.payload.user;
+    //   state.token = action.payload.token;
+    //   state.isLoggedIn = false;
+    // },
     [signIn.fulfilled](state, action) {
       state.user = action.payload.user;
       state.token = action.payload.token;

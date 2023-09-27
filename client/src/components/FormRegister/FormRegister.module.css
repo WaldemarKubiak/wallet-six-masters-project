@@ -3,3 +3,75 @@
   gap: 20px;
   flex-direction: column;
 }
+
+.homeScreen__imgBox {
+  display: none;
+  z-index: 10;
+}
+
+.homeScreen__formBox {
+  padding: 32px 20px 36px 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  z-index: 10;
+}
+
+.homeScreen__titleBox {
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.homeScreen__title {
+  margin: 0;
+  color: black;
+  text-align: center;
+  /* font-family: Poppins; */
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .registerForm {
+    align-items: center;
+  }
+
+  .homeScreen__imgBox {
+    width: 535px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .imgBox__title {
+    /* font-family: Poppins; */
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.5;
+    margin: 0 0 0 40px;
+    color: black;
+  }
+
+  .homeScreen__formBox {
+    width: 535px;
+    background-color: white;
+    padding: 40px 65px 65px 65px;
+    border-radius: 20px;
+    min-height: fit-content;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .homeScreen__imgBox {
+    flex-direction: column;
+    gap: 30px;
+    width: fit-content;
+  }
+}

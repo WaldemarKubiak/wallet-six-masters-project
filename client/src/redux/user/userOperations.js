@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import Notiflix from "notiflix";
 
-axios.defaults.baseURL = "https://localhost:3001";
+axios.defaults.baseURL = "https://wallet-project-4dhb.onrender.com/api";
 
 const setAuthHeader = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -17,14 +17,14 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/users/signup", credentials);
-      setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
+      console.log(e);
       Notiflix.Notify.init({
         timeout: 5000,
       });
-      Notiflix.Notify.failure(e.message);
-      return thunkAPI.rejectWithValue(e.message);
+      Notiflix.Notify.failure(e.response.data.message);
+      return thunkAPI.rejectWithValue(e.response.data);
     }
   }
 );
@@ -40,8 +40,8 @@ export const signIn = createAsyncThunk(
       Notiflix.Notify.init({
         timeout: 5000,
       });
-      Notiflix.Notify.failure(e.message);
-      return thunkAPI.rejectWithValue(e.message);
+      Notiflix.Notify.failure(e.response.data.message);
+      return thunkAPI.rejectWithValue(e.response.data);
     }
   }
 );
@@ -54,8 +54,8 @@ export const signOut = createAsyncThunk("auth/signOut", async (_, thunkAPI) => {
     Notiflix.Notify.init({
       timeout: 5000,
     });
-    Notiflix.Notify.failure(e.message);
-    return thunkAPI.rejectWithValue(e.message);
+    Notiflix.Notify.failure(e.response.data.message);
+    return thunkAPI.rejectWithValue(e.response.data);
   }
 });
 
@@ -76,8 +76,8 @@ export const refreshUser = createAsyncThunk(
       Notiflix.Notify.init({
         timeout: 5000,
       });
-      Notiflix.Notify.failure(e.message);
-      return thunkAPI.rejectWithValue(e.message);
+      Notiflix.Notify.failure(e.response.data.message);
+      return thunkAPI.rejectWithValue(e.response.data);
     }
   }
 );

@@ -28,3 +28,9 @@
   border-color: #363fab;
   stroke: none;
 }
+
+@media screen and (min-width: 768px) {
+  .btnLink {
+    width: 300px;
+  }
+}
