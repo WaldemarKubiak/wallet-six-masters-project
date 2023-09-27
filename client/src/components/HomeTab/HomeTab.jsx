@@ -24,11 +24,13 @@ export const HomeTab = () => {
     //delete modal with id of financial
     //dispatch(DeleteFinal())
   };
-
-  useEffect(() => {
-    dispatch(getFinance());
-  }, []);
   console.log(financeData);
+  const cutDate = date => {
+    const year = date.slice(0, 10);
+    const time = date.slice(11, 16);
+
+    return `${year}`;
+  };
   return (
     <div className={css.tableWrapper}>
       <table className={css.table}>
@@ -46,16 +48,16 @@ export const HomeTab = () => {
         {financeData.length > 0 ? (
           <tbody>
             {sortedData.map((item, index) => (
-              <tr key={index} className={css.tableRow}>
-                <td>{item.date}</td>
-                <td>{item.type}</td>
+              <tr key={item._id} className={css.tableRow}>
+                <td>{cutDate(item.date)}</td>
+                <td>{item.income ? '+' : '-'}</td>
                 <td>{item.category}</td>
                 <td>{item.comment}</td>
                 <td>{item.sum}</td>
                 <td>
                   <button
                     className={css.buttonEdit}
-                    onClick={() => handleEditFinance(item.id)}
+                    onClick={() => handleEditFinance(item._id)}
                   >
                     <MdEdit size={24} className={css.icon} />
                   </button>
@@ -63,7 +65,7 @@ export const HomeTab = () => {
                 <td>
                   <button
                     className={css.button}
-                    onClick={() => handleDeleteFinance(item.id)}
+                    onClick={() => handleDeleteFinance(item._id)}
                   >
                     Delete
                   </button>
