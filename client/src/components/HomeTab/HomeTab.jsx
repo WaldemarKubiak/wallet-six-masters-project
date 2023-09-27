@@ -73,9 +73,11 @@ export const HomeTab = () => {
 
   const handleEditFinance = id => {
     //open modal with id of financial
+    //dispatch(EditModal())
   };
   const handleDeleteFinance = id => {
     //delete modal with id of financial
+    //dispatch(DeleteFinal())
   };
   return (
     <div className={css.tableWrapper}>
