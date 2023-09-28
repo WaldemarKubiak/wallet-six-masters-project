@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { selectFinancesIsLoading } from '../../redux/finance/financeSelectors';
 import { selectGetFinances } from '../../redux/finance/financeSelectors';
 
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getFinance } from '../../redux/finance/financeOperations';
+
 export const HomeTab = () => {
   const dispatch = useDispatch();
   const financeData = useSelector(selectGetFinances);
@@ -24,7 +24,7 @@ export const HomeTab = () => {
     //delete modal with id of financial
     //dispatch(DeleteFinal())
   };
-  console.log(financeData);
+
   const cutDate = date => {
     const year = date.slice(0, 10);
     const time = date.slice(11, 16);

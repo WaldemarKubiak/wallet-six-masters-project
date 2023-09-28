@@ -1,0 +1,22 @@
+.btn {
+  padding: 15px 20px 20px 20px;
+  border-radius: 50%;
+
+  font-size: 32px;
+  line-height: 18px;
+  font-weight: 400;
+
+  background-color: rgba(0, 128, 0, 0.644);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+
+  transition: background-color 250ms ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(0, 128, 0);
+}

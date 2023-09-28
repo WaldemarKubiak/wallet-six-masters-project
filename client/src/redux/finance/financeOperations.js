@@ -11,10 +11,16 @@ export const getFinance = createAsyncThunk(
   'finance/getFinancesData',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.post('/transactions');
-      setAuthHeader(response.data);
+      const state = thunkAPI.getState();
+      const token = state?.user?.token || '';
 
-      return response.data.transactions;
+      if (!token)
+        return thunkAPI.rejectWithValue('Valid token is not provided');
+      setAuthHeader(token);
+
+      const response = await axios.post('/transactions');
+
+      return response.data.data.transactions;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
