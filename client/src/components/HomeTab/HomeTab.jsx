@@ -3,9 +3,8 @@ import { MdEdit } from 'React-icons/md';
 import { useSelector } from 'react-redux';
 import { selectFinancesIsLoading } from '../../redux/finance/financeSelectors';
 import { selectGetFinances } from '../../redux/finance/financeSelectors';
-
 import { useDispatch } from 'react-redux';
-import { getFinance } from '../../redux/finance/financeOperations';
+
 
 export const HomeTab = () => {
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ export const HomeTab = () => {
     //dispatch(EditModal())
   };
   const handleDeleteFinance = id => {
-    //delete modal with id of financial
+    //open delete modal with id of financial
     //dispatch(DeleteFinal())
   };
 
