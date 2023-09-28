@@ -41,7 +41,7 @@ const getById = async (req, res, next) => {
       res.status(404).json({
         status: "error",
         code: 404,
-        message: `Transaction id not found: ${id}`,
+        message: `Transaction not found`,
         data: "Not Found",
       });
     }
