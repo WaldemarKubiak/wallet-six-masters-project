@@ -1,0 +1,147 @@
+openapi: 3.0.0
+servers:
+   # Added by API Auto Mocking Plugin
+   # Added by API Auto Mocking Plugin
+   - description: SwaggerHub API Auto Mocking
+     url: https://virtserver.swaggerhub.com/GRUUUBYKRZYCHU/Wallet_App_Six_masters_API/1.0.0
+   - description: API on Render
+     url: https://wallet-project-4dhb.onrender.com/api
+     
+   - description: API on localhost
+     url: http://localhost:3000/api
+info:
+  description: |-
+    This is a Wallet App (Six Masters) API specification based on the OpenAPI 3.0 .
+
+    Some useful links:
+    - [The Wallet App (Six Masters) repository](https://github.com/WaldemarKubiak/wallet-six-masters-project)
+    - [The source API definition for the Wallet App (Six Masters)](https://github.com/WaldemarKubiak/wallet-six-masters-project/tree/main/server/apiapi_docs/api.yaml)
+  version: "1.0.0"
+  title: Walet App (Six Masters) - OpenAPI 3.0
+  contact:
+    email: gruuuby.krzychu@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: transactions
+    description: Transaction endpoints
+  - name: users
+    description: User endpoints for signup, authentication and authorisation
+  - name: categories
+    description: Category endpoits
+paths:
+  /transactions:
+    get:
+      tags:
+        - transactions
+      summary: get this months transactions owned by logged in user
+      # operationId: searchTransaction
+      # description: |
+      #   By passing in the appropriate options, you can search for
+      #   available transaction in the system
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Transaction'
+        '400':
+          description: bad input parameter
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    post:
+      tags:
+        - transactions
+      summary: adds a transaction
+      # operationId: addInventory
+      description: Adds an transaction
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+        description: Transaction to add
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+  schemas:
+    Transaction:
+      type: object
+      required:
+        - _id
+        - date
+        - income
+        - category
+        - comment
+        - sum
+        - owner
+      properties:
+        -id:
+          type: string
+          format: ObjectID
+          example: '65131d13fea2c3fa6ba2ebc2'
+        date:
+          type: integer
+          format: timestamp
+          example: 1695801328544
+        income:
+          type: boolean
+          default: false
+          description: if false transaction is an expense
+        category:
+          type: string
+          example: 'Car'
+        comment:
+          type: string
+          example: "Car wash"
+        sum:
+          type: integer
+          example: 175
+        owner:
+          $ref: '#/components/schemas/User'
+    User:
+      type: object
+      required:
+        - email
+        - password
+        - firstName
+        - token
+      properties:
+        email:
+          type: string
+          format: email
+          example: 'someuser@mail.com'
+        password:
+          type: string
+          example: 's0m3d1ficULtp4ssw0rD!'
+        firstName:
+          type: string
+          example: 'Eduardo'
+  
+    Category:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: 'Car"'

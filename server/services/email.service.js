@@ -14,7 +14,7 @@ const config = {
   },
 };
 
-const host = process.env.API_HOST
+const host = process.env.API_HOST;
 
 const sendVerificationEmail = async (to, name, verificationToken) => {
   const transporter = nodemailer.createTransport(config);
@@ -23,16 +23,13 @@ const sendVerificationEmail = async (to, name, verificationToken) => {
     from: process.env.MAIL_USER,
     to,
     subject: "User verification",
-    text:
-      
-`Hi ${name},
+    text: `Hi ${name},
     
 Please click the link below to verify your email and activate your account, so that you can use your Wallet App:
 
-http://${host}:3000/api/users/verify/${verificationToken}
+${host}/api/users/verify/${verificationToken}
     
 Your Wallet App Team`,
-    
   };
 
   return await transporter.sendMail(emailOptions);
