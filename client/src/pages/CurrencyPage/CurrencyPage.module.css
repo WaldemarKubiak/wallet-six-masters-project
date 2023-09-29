@@ -1,0 +1,19 @@
+/*Mobile*/
+
+.currency_page {
+	background-color: #e7eaf2;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	width: 100%;
+	/* height: 100vw; */
+}
+.currency_page__content {
+	padding: 15px 20px;
+}
+.currency_page__navigation {
+	margin-bottom: 28px;
+}
+/* .currency_page__balance {
+	margin-bottom: 32px;
+} */
