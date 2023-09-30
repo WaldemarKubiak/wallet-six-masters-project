@@ -1,11 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: "Roboto", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+	background-color: #ece8e8;
+	line-height: 1.5;
+	font-weight: 400;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -29,6 +36,9 @@ body {
 	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
+	font-family: "Roboto";
+	place-items: center;
+	box-sizing: border-box;
 }
 
 h1 {
@@ -66,4 +76,10 @@ button:focus-visible {
 	button {
 		background-color: #f9f9f9;
 	}
+}
+
+* {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
