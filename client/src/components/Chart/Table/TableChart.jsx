@@ -42,18 +42,6 @@ const TableChart = ({ dataToRender }) => {
 		})
 		.replace(',', '.');
 
-	const categoryColors = {
-		'Main expenses': '#fed057',
-		Products: '#ffd8d0',
-		Car: '#fd9498',
-		'Self care': '#c5baff',
-		'Child care': '#6e78e8',
-		'Household products': '#4a56e2',
-		Education: '#81e1ff',
-		Leisure: '#24cca7',
-		'Other expenses': '#00ad84',
-	};
-
 	const [selectedMonth, setSelectedMonth] = useState('01');
 	const [selectedYear, setSelectedYear] = useState('2023');
 	const dispatch = useDispatch();
@@ -113,12 +101,12 @@ const TableChart = ({ dataToRender }) => {
 			</div>
 
 			<ul className={css.list}>
-				{dataStatsArr.map(({ category, total }) => (
+				{dataStatsArr.map(({ category, color, total }) => (
 					<li className={css.listItem} key={nanoid()}>
 						<div className={css.listItemWrap}>
 							<div
 								style={{
-									backgroundColor: categoryColors[category],
+									backgroundColor: color,
 									width: '24px',
 									height: '24px',
 									borderRadius: '2px',
@@ -150,7 +138,7 @@ TableChart.propTypes = {
 			PropTypes.shape({
 				category: PropTypes.string.isRequired,
 				total: PropTypes.number.isRequired,
-				// color: PropTypes.string.isRequired, // Kolor jako string?
+				color: PropTypes.string.isRequired,
 			})
 		).isRequired,
 		expenses: PropTypes.number.isRequired,

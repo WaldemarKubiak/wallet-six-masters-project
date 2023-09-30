@@ -23,6 +23,7 @@ const Chart = ({ dataToRender }) => {
 
 	const categories = dataStatsArr.map(item => item.category);
 	const values = dataStatsArr.map(item => item.total);
+	const colors = dataStatsArr.map(item => item.color);
 
 	const data = {
 		labels: categories,
@@ -30,17 +31,7 @@ const Chart = ({ dataToRender }) => {
 			{
 				label: 'Sum',
 				data: values,
-				backgroundColor: [
-					'#fed057',
-					'#ffd8d0',
-					'#fd9498',
-					'#c5baff',
-					'#6e78e8',
-					'#4a56e2',
-					'#81e1ff',
-					'#24cca7',
-					'#00ad84',
-				],
+				backgroundColor: colors,
 				borderWidth: 1,
 				borderColor: ['transparent'],
 			},
@@ -95,6 +86,7 @@ Chart.propTypes = {
 			PropTypes.shape({
 				category: PropTypes.string.isRequired,
 				total: PropTypes.number.isRequired,
+				color: PropTypes.string.isRequired,
 			})
 		).isRequired,
 		expenses: PropTypes.number.isRequired,
