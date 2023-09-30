@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "../hook/useAuth/useAuth";
 
 // EWENUTLANIE ZMIENIĆ ŚCIEZKĘ REDIRECT TO JAK JUZ BEDZIE ZROBIONA TAMTA CZĘŚĆ
-export const RestrictedRoute = ({ component, redirectTo = "/home" }) => {
+export const RestrictedRoute = ({ component, redirectTo = "/" }) => {
   const { isAuthorized, isRefreshing } = useAuth();
 
   const shouldRecirect = !isAuthorized && !isRefreshing;
