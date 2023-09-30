@@ -11,6 +11,8 @@ import Registration from "./pages/Registration/Registration";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import CurrencyPage from "./pages/CurrencyPage/CurrencyPage";
 
+import { LoaderSpinner } from "./components/LoaderSpinner/loaderSpinner";
+
 function App() {
 	const dispatch = useDispatch();
 	const { isRefreshing } = useAuth();
@@ -18,6 +20,7 @@ function App() {
 	useEffect(() => {
 		dispatch(refreshUser());
 	}, [dispatch]);
+
 
 	return isRefreshing ? (
 		<h2>Loading...</h2>
