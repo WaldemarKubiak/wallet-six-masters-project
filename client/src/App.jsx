@@ -9,6 +9,8 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import HomePage from "./pages/homePage/HomePage";
 import Registration from "./pages/Registration/Registration";
 
+import { LoaderSpinner } from "./components/LoaderSpinner/loaderSpinner";
+
 function App() {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
@@ -17,8 +19,10 @@ function App() {
     dispatch(refreshUser());
   }, [dispatch]);
 
+  console.log(isRefreshing);
+
   return isRefreshing ? (
-    <h2>Loading...</h2>
+    <LoaderSpinner />
   ) : (
     <>
       <Routes>
