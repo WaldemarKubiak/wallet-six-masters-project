@@ -1,0 +1,72 @@
+/*Mobile*/
+
+.dashboard {
+	background-color: #e7eaf2;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	/* width: 100%; */
+	padding: 32px 32px;
+
+	/* height: auto; */
+}
+/* .dashboard__content {
+	padding: 15px 20px;
+} */
+.dashboard__navigation {
+	margin-bottom: 15px;
+}
+.dashboard__balance {
+	margin-bottom: 32px;
+}
+.dashboard__currency {
+	display: none;
+}
+
+/*Tablet*/
+@media screen and (min-width: 768px) {
+	.dashboard {
+		padding: 32px 32px;
+		column-gap: 32px;
+
+		/* background-image: url(../../assets/Eclipse1.svg);
+		background-position: bottom center;
+		background-repeat: no-repeat;
+		background-size: contain; */
+	}
+	.dashboard__content {
+		padding: 0;
+		/* display: flex; */
+		column-gap: 32px;
+	}
+	.dashboard__currency {
+		display: contents;
+	}
+}
+
+/*Desktop*/
+@media screen and (min-width: 1280px) {
+	.dashboard {
+		padding: 40px 16px;
+		/* column-gap: 32px; */
+		/* display: flex; */
+		/* flex-direction: column; */
+		flex-direction: column;
+		/* align-items: center; */
+
+		/* flex-direction: column; */
+		/* justify-content: center; */
+		margin: 0 auto;
+	}
+	.dashboard__navigation {
+		width: 480px;
+	}
+	/* .dashboard__content {
+		flex: none;
+	} */
+	/* .dashboard__border {
+		border-right: solid 1px black;
+		margin: auto;
+		height: 100w;
+	} */
+}
