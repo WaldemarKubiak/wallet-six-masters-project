@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './Chart.module.css';
 
 import {
@@ -12,29 +13,16 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Colors, Legend);
 
 const Chart = ({ dataToRender }) => {
-	// export default function Chart() {
-	//   const rawData = {
-	//     data: {
-	//       stats: [
-	//         { category: "Main expenses", total: 8700.0 },
-	//         { category: "Products", total: 3800.74 },
-	//         { category: "Car", total: 1500.0 },
-	//         { category: "Self care", total: 800.0 },
-	//         { category: "Child care", total: 2208.5 },
-	//         { category: "Household products", total: 300.0 },
-	//         { category: "Education", total: 3400.0 },
-	//         { category: "Leisure", total: 1230.0 },
-	//         { category: "Other expenses", total: 610.0 }
-	//       ],
-	//       expenses: 1302,
-	//       income: 0
-	//     }
-	//   };
+	const dataStats = dataToRender.stats;
 
-	const dataStats = dataToRender.data.stats;
+	const dataStatsArr = [];
 
-	const categories = dataStats.map(item => item.category);
-	const values = dataStats.map(item => item.total);
+	for (const obj in dataStats) {
+		dataStatsArr.push(dataStats[obj]);
+	}
+
+	const categories = dataStatsArr.map(item => item.category);
+	const values = dataStatsArr.map(item => item.total);
 
 	const data = {
 		labels: categories,
@@ -64,7 +52,7 @@ const Chart = ({ dataToRender }) => {
 		beforeDatasetsDraw(chart) {
 			const { ctx } = chart;
 			ctx.save();
-			ctx.font = 'bold 24px arial';
+			ctx.font = 'bold 18px arial';
 			ctx.fillStyle = '#000000';
 			ctx.textAlign = 'center';
 			ctx.textBaseline = 'middle';
@@ -99,6 +87,19 @@ const Chart = ({ dataToRender }) => {
 			</div>
 		</div>
 	);
+};
+
+Chart.propTypes = {
+	dataToRender: PropTypes.shape({
+		stats: PropTypes.arrayOf(
+			PropTypes.shape({
+				category: PropTypes.string.isRequired,
+				total: PropTypes.number.isRequired,
+			})
+		).isRequired,
+		expenses: PropTypes.number.isRequired,
+		income: PropTypes.number.isRequired,
+	}).isRequired,
 };
 
 export default Chart;

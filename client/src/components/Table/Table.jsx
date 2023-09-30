@@ -19,7 +19,7 @@ export const Table = ({ data }) => {
 						<div className={css.categoryBox}>
 							<span
 								className={css.colorBox}
-								style={{ backgroundColor: `#${getRandomColor()}` }}></span>
+								style={{ backgroundColor: `#${getRandomColor()}` }}></span> 
 							<p className={css.categoryName}>{item.category}</p>
 						</div>
 						<p className={css.categoryVal}>{item.total}</p>
@@ -43,3 +43,5 @@ export const Table = ({ data }) => {
 		</div>
 	);
 };
+
+//22 linia podmienić
