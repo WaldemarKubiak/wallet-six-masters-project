@@ -11,7 +11,7 @@ const financeInitialState = {
 	transcactions: {
 		data: {
 			stats: [
-				{ category: 'Main expenses', color: '#ffffff', total: 0 },
+				{ category: 'Main expenses', color: '#ffffff', total: 10 },
 				{ category: 'Products', color: '#ffffff', total: 0 },
 				{ category: 'Car', color: '#ffffff', total: 0 },
 				{ category: 'Self care', color: '#ffffff', total: 0 },

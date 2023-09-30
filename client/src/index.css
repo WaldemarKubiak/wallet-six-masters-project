@@ -33,7 +33,7 @@ a:hover {
 body {
   margin: 0;
 
-  display: flex;
+  /* display: flex; */
   font-family: 'Roboto';
 
   place-items: center;

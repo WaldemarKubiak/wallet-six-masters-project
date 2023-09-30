@@ -1,5 +1,58 @@
 .diagramWrap {
-	font-family: sans-serif;
-	text-align: center;
-	display: flex;
+	/* background-color: rgba(255, 255, 255, 0.40); */
+	background-color: aquamarine;
+	backdrop-filter: blur(25px);
+
+	/* font-family: sans-serif; */
+	/* text-align: center; */
+	/* display: flex; */
+
+	margin: 0 auto;
+	width: 100%;
+	min-width: 320px;
+	padding: 0 20px;
 }
+
+@media screen and (min-width: 480px) {
+	.diagramWrap {
+		width: 480px;
+	}
+}
+@media screen and (min-width: 768px) {
+	.diagramWrap {
+		display: flex;
+		flex-direction: wrap;
+		width: 768px;
+		padding: 0 32px;
+	}
+}
+@media screen and (min-width: 1280px) {
+	.diagramWrap {
+		width: 1280px;
+		padding: 0 16px 0 18px;
+	}
+}
+
+.diagramTitle {
+	color: #000;
+	text-align: start;
+	/* font-family: Poppins; */
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-top: 0px;
+	padding-top: 40px;
+}
+
+@media screen and (min-width: 768px) {
+	.diagramTitle {
+		position: relative;
+		padding-top: 20px;
+		color: red;
+	}
+}
+
+/* .chartWrap {
+	background-color: blueviolet;
+} */

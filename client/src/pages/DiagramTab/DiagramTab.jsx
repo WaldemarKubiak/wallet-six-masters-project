@@ -10,7 +10,7 @@ const DiagramTab = () => {
 
 	return (
 		<div className={css.diagramWrap}>
-			<h2>Statistic</h2>
+			<h2 className={css.diagramTitle}>Statistic</h2>
 			<Chart dataToRender={dataToRender} />
 			<TableChart dataToRender={dataToRender} />
 		</div>

@@ -42,7 +42,7 @@ const TableChart = ({ dataToRender }) => {
 		})
 		.replace(',', '.');
 
-	const [selectedMonth, setSelectedMonth] = useState('01');
+	const [selectedMonth, setSelectedMonth] = useState('09');
 	const [selectedYear, setSelectedYear] = useState('2023');
 	const dispatch = useDispatch();
 
@@ -68,64 +68,66 @@ const TableChart = ({ dataToRender }) => {
 	}, [dispatch, selectedMonth, selectedYear]);
 
 	return (
-		<div className={css.tableWrap}>
-			<div className={css.selectWrapper}>
-				<select
-					className={css.selectMonth}
-					value={selectedMonth}
-					onChange={handleMonthChange}>
-					{Object.keys(monthToNumber).map(month => (
-						<option key={month} value={monthToNumber[month]}>
-							{month}
-						</option>
-					))}
-				</select>
-
-				<select
-					className={css.selectYear}
-					value={selectedYear}
-					onChange={handleYearChange}>
-					{['2020', '2021', '2022', '2023', '2024', '2025', '2026'].map(
-						year => (
-							<option key={year} value={year}>
-								{year}
+		<div className={css.chartWrap}>
+			<div className={css.tableWrap}>
+				<div className={css.selectDateWrapper}>
+					<select
+						className={css.selectMonth}
+						value={selectedMonth}
+						onChange={handleMonthChange}>
+						{Object.keys(monthToNumber).map(month => (
+							<option key={month} value={monthToNumber[month]}>
+								{month}
 							</option>
-						)
-					)}
-				</select>
-			</div>
+						))}
+					</select>
 
-			<div className={css.header}>
-				<div className={css.headerItem}>Category</div>
-				<div className={css.headerItem}>Sum</div>
-			</div>
-
-			<ul className={css.list}>
-				{dataStatsArr.map(({ category, color, total }) => (
-					<li className={css.listItem} key={nanoid()}>
-						<div className={css.listItemWrap}>
-							<div
-								style={{
-									backgroundColor: color,
-									width: '24px',
-									height: '24px',
-									borderRadius: '2px',
-									marginRight: '16px',
-								}}></div>
-							<p className={css.category}>{category}</p>
-						</div>
-						<p>{total.toFixed(2)}</p>
-					</li>
-				))}
-			</ul>
-			<div className={css.resultsWrap}>
-				<div className={css.results}>
-					<p className={css.resultsTitle}>Expenses:</p>
-					<p className={css.resultsExpenses}>{formattedExpenses}</p>
+					<select
+						className={css.selectYear}
+						value={selectedYear}
+						onChange={handleYearChange}>
+						{['2020', '2021', '2022', '2023', '2024', '2025', '2026'].map(
+							year => (
+								<option key={year} value={year}>
+									{year}
+								</option>
+							)
+						)}
+					</select>
 				</div>
-				<div className={css.results}>
-					<p className={css.resultsTitle}>Income:</p>
-					<p className={css.resultsIncome}>{formattedIncome}</p>
+
+				<div className={css.header}>
+					<div className={css.headerItem}>Category</div>
+					<div className={css.headerItem}>Sum</div>
+				</div>
+
+				<ul className={css.list}>
+					{dataStatsArr.map(({ category, color, total }) => (
+						<li className={css.listItem} key={nanoid()}>
+							<div className={css.listItemWrap}>
+								<div
+									style={{
+										backgroundColor: color,
+										width: '24px',
+										height: '24px',
+										borderRadius: '2px',
+										marginRight: '16px',
+									}}></div>
+								<p className={css.category}>{category}</p>
+							</div>
+							<p>{total.toFixed(2)}</p>
+						</li>
+					))}
+				</ul>
+				<div className={css.resultsWrap}>
+					<div className={css.results}>
+						<p className={css.resultsTitle}>Expenses:</p>
+						<p className={css.resultsExpenses}>{formattedExpenses}</p>
+					</div>
+					<div className={css.results}>
+						<p className={css.resultsTitle}>Income:</p>
+						<p className={css.resultsIncome}>{formattedIncome}</p>
+					</div>
 				</div>
 			</div>
 		</div>
