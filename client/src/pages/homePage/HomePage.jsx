@@ -4,9 +4,9 @@ import HomeScreen from "../../components/HomeScreen/HomeScreen";
 import FormSignIn from "../../components/FormSignIn/FormSignIn";
 
 // import LogoutModal from "../../components/ModalLogout/modalLogout";
-import AddTransactionModal from "../../components/ModalAddTransaction/modalAddTransaction";
+// import AddTransactionModal from "../../components/ModalAddTransaction/modalAddTransaction";
 
-import EditTransactionModal from "../../components/EditTransactionModal/EditTransactionModal";
+// import EditTransactionModal from "../../components/EditTransactionModal/EditTransactionModal";
 
 import Header from "../../components/Header/Header";
 
@@ -29,9 +29,7 @@ const HomePage = () => {
   return (
     <HomeScreen>
       {isLoggedIn && <Header />}
-      <Header />
-      <AddTransactionModal />
-      <EditTransactionModal />
+
       <FormSignIn />
     </HomeScreen>
   );
@@ -40,3 +38,7 @@ const HomePage = () => {
 export default HomePage;
 
 // <AddTransactionModal />;
+
+// <Header />
+//     <AddTransactionModal />
+//     <EditTransactionModal />

@@ -1,1 +1,5 @@
-export const selectPostTransactions = (state) => state.finance.finances.data;
+export const selectIsModalAddTransaction = (state) =>
+  state.global.isModalAddTransactionOpen;
+
+export const selectIsModalLogoutOpen = (state) =>
+  state.global.isModalLogoutOpen;

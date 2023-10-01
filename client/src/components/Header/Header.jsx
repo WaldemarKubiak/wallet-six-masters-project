@@ -5,35 +5,43 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { selectUser } from "../../redux/user/userSelectors";
 import { signOut } from "../../redux/user/userOperations";
 
-import { useState } from "react";
+// import { useState } from "react";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 
-// Modal.setAppElement("#root");
+import { setIsModalLogoutOpen } from "../../redux/global/globalSlice";
+
+import { selectIsModalLogoutOpen } from "../../redux/global/globalSelectors";
+
+Modal.setAppElement("#root");
 
 const Header = () => {
   const user = useSelector(selectUser);
-  console.log(user);
-  console.log(user.firstName);
 
   const name = user.firstName;
 
-  const dispatch = useDispatch();
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const openModal = () => {
+  //   setModalIsOpen(true);
+  // };
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+  const isModalOpen = useSelector(selectIsModalLogoutOpen);
 
   const closeModal = () => {
-    setModalIsOpen(false);
+    dispatch(setIsModalLogoutOpen(false));
   };
 
   const handleLogout = () => {
     dispatch(signOut());
     closeModal();
   };
+
+  const handleOnclick = () => {
+    dispatch(setIsModalLogoutOpen(true));
+  };
+
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -74,7 +82,7 @@ const Header = () => {
               viewBox="0 0 18 18"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              onClick={openModal}
+              onClick={handleOnclick}
             >
               <g clipPath="url(#clip0_39706_1104)">
                 <path
@@ -94,7 +102,7 @@ const Header = () => {
       </div>
 
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Logout Modal"
         className={css.LogoutModal}

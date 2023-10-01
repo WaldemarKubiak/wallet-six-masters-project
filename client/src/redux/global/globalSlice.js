@@ -1,9 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { postTransactions } from "./globalOperations";
 
-const initialState = { date: null, category: null, comment: null, sum: null };
+const initialState = {
+  isLoading: false,
+  isModalLogoutOpen: false,
+  isModalAddTransactionOpen: false,
+};
 
-const globalSlice = createSlice();
+const globalSlice = createSlice({
+  name: "global",
+  initialState: initialState,
+  reducers: {
+    importInfoData: (state) => state,
+    setIsModalAddTransactionOpen(state, action) {
+      state.isModalAddTransactionOpen = action.payload;
+    },
+    setIsModalLogoutOpen(state, action) {
+      state.isModalLogoutOpen = action.payload;
+    },
+  },
+  extraReducers: {},
+});
 
-export const { importInfoData } = globalSlice.actions;
+export const {
+  importInfoData,
+  setIsModalAddTransactionOpen,
+  setIsModalLogoutOpen,
+} = globalSlice.actions;
 export const globalReducer = globalSlice.reducer;

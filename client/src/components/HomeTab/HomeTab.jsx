@@ -1,30 +1,69 @@
-import css from './HomeTab.module.css';
-import { MdEdit } from 'React-icons/md';
-import { useSelector } from 'react-redux';
-import { selectFinancesIsLoading } from '../../redux/finance/financeSelectors';
-import { selectGetFinances } from '../../redux/finance/financeSelectors';
-import { useDispatch } from 'react-redux';
+import css from "./HomeTab.module.css";
+import { MdEdit } from "React-icons/md";
+import { useSelector } from "react-redux";
+import { selectFinancesIsLoading } from "../../redux/finance/financeSelectors";
+import { selectGetFinances } from "../../redux/finance/financeSelectors";
+import { useDispatch } from "react-redux";
+import { importEditTransactionData } from "../../redux/finance/finanseSlice";
 
-
-export const HomeTab = () => {
+const HomeTab = () => {
   const dispatch = useDispatch();
-  const financeData = useSelector(selectGetFinances);
+  // const financeData = useSelector(selectGetFinances);
+
+  const financeData = [
+    {
+      date: "2023-09-29",
+      income: true,
+      category: "Salary",
+      comment: "Monthly income",
+      sum: 2500,
+      id: "abc123",
+    },
+    {
+      date: "2023-09-28",
+      income: false,
+      category: "Groceries",
+      comment: "Weekly grocery shopping",
+      sum: 150,
+      id: "def456",
+    },
+    {
+      date: "2023-09-27",
+      income: false,
+      category: "Utilities",
+      comment: "Electricity bill",
+      sum: 100,
+      id: "ghi789",
+    },
+  ];
+
   const financesLoading = useSelector(selectFinancesIsLoading);
 
   const sortedData = financeData.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-  const handleEditFinance = id => {
+  const handleEditFinance = (id) => {
+    const foundTransaction = financeData.find((element) => element._id === id);
+
+    const data = {
+      date: foundTransaction.date,
+      income: foundTransaction.income,
+      category: foundTransaction.category,
+      comment: foundTransaction.comment,
+      sum: foundTransaction.sum,
+      id: foundTransaction._id,
+    };
+    console.log(data);
     //open modal with id of financial
-    //dispatch(EditModal())
+    dispatch(importEditTransactionData(data));
   };
-  const handleDeleteFinance = id => {
+  const handleDeleteFinance = (id) => {
     //open delete modal with id of financial
     //dispatch(DeleteFinal())
   };
 
-  const cutDate = date => {
+  const cutDate = (date) => {
     const year = date.slice(0, 10);
     const time = date.slice(11, 16);
 
@@ -49,7 +88,7 @@ export const HomeTab = () => {
             {sortedData.map((item, index) => (
               <tr key={item._id} className={css.tableRow}>
                 <td>{cutDate(item.date)}</td>
-                <td>{item.income ? '+' : '-'}</td>
+                <td>{item.income ? "+" : "-"}</td>
                 <td>{item.category}</td>
                 <td>{item.comment}</td>
                 <td>{item.sum}</td>
@@ -95,3 +134,5 @@ export const HomeTab = () => {
     </div>
   );
 };
+
+export default HomeTab;

@@ -1,34 +1,32 @@
 import { useState } from "react";
 import Modal from "react-modal";
+import Notiflix from "notiflix";
 
-// import ButtonAdd from "../../components/ButtonAdd/ButtonAdd";
-// import ButtonCancel from "../../components/ButtonCancel/ButtonCancel";
 import css from "../ModalAddTransaction/ModalAddTransaction.module.css";
-
-import React from "react";
-import TransactionsDropdown from "../../components/TransactionsDropdown/TransactionsDropdown";
 
 import FormInput from "../FormInput/FormInput";
 import IncomeBar from "../../components/IncomeBar/IncomeBar";
 import TextArea from "../../components/TextArea/TextArea";
-import Date from "../../components/Date/Date";
+import DateCalendar from "../../components/DateCalendar/DateCalendar";
 
 import indicative from "indicative";
 import { useDispatch } from "react-redux";
 
-// Make sure to set appElement to the root of your app for accessibility
+import { postTransactions } from "../../redux/finance/financeOperations";
+
+import { setIsModalAddTransactionOpen } from "../../redux/global/globalSlice";
+
 Modal.setAppElement("#root");
-// const onAddTransaction = true;
 
-const AddTransactionModal = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+const AddTransactionModal = ({ isOpen }) => {
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+  // const openModal = () => {
+  //   setModalIsOpen(true);
+  // };
 
   const closeModal = () => {
-    setModalIsOpen(false);
+    dispatch(setIsModalAddTransactionOpen(false));
   };
 
   const [expense, setExpense] = useState(false);
@@ -46,49 +44,42 @@ const AddTransactionModal = () => {
   const handleAddTransaction = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    console.log(form.elements);
-    console.log(form.elements.amount.value);
-    console.log(form.elements.comment.value);
-    console.log(form.elements.date.value);
 
-    const rules = {
-      amount: "required",
-      date: "required",
-      //    category: "required",
-    };
+    // const rules = {
+    //   amount: "required|min:1",
+    // };
 
-    const data = {
-      amount: form.elements.amount.value,
-      date: form.elements.date.value,
-      //    category: form.elements.SelectedOption.value,
-    };
+    // const data = {
+    //   amount: form.elements.amount.value,
+    // };
 
-    // console.log(data.amount);
-    // console.log(data.date);
-    // console.log(data.category);
+    // indicative.validateAll(data, rules).then(function () {
+    dispatch(
+      postTransactions({
+        date: Date.parse(
+          form.elements.date.value.split("-").reverse().join(" ")
+        ),
+        income: !expense,
+        category: expense ? form.elements.select.value : "income",
+        comment: form.elements.comment.value
+          ? form.elements.comment.value
+          : " ",
+        sum: Math.round(form.elements.amount.value),
+      })
+    );
 
-    //     indicative.validateAll(data, rules);
-    //     .then(function () {
-    //     dispatch(
-    //     signIn({
-    //      email: form.elements.email.value,
-    //      password: form.elements.password.value,
     form.reset();
-  };
-  // )
-  //   );
 
-  //   form.reset();
-  // })
-  // .catch(function (err) {
-  //   Notiflix.Notify.init({
-  //    timeout: 5000,
-  //   });
-  //   Notiflix.Notify.failure(
-  //     "All fields are required to complete the sign in process."
-  //   );
-  //   console.error(err);
-  // });
+    // .catch(function (err) {
+    //   Notiflix.Notify.init({
+    //     timeout: 15000,
+    //   });
+    //   Notiflix.Notify.failure("Amount is required as a number.");
+    //   console.error(err);
+    // });
+
+    closeModal();
+  };
 
   const options = [
     "Main expenses",
@@ -103,20 +94,11 @@ const AddTransactionModal = () => {
     "Other expenses",
   ];
 
-  function Select() {
-    return (
-      <div className={css.Select}>
-        <TransactionsDropdown options={options} />
-      </div>
-    );
-  }
-
   return (
     <div>
-      <button onClick={openModal}>Add</button>
       <Modal
         className={css.ModalAddTransaction}
-        isOpen={modalIsOpen}
+        isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Add Modal"
         style={{
@@ -161,7 +143,16 @@ const AddTransactionModal = () => {
             className={css.addTransactionForm}
             onSubmit={handleAddTransaction}
           >
-            {expense && <Select />}
+            {expense && (
+              <select defaultValue="income" name="select">
+                {options.map((category) => (
+                  <option value={category} key={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            )}
+
             <div className={css.tabletVersion}>
               <FormInput
                 type="amount"
@@ -169,7 +160,7 @@ const AddTransactionModal = () => {
                 placeholder="0.00"
                 className={css.amount}
               ></FormInput>
-              <Date />
+              <DateCalendar />
             </div>
             <TextArea type="comment" name="comment" placeholder="Comment" />
 

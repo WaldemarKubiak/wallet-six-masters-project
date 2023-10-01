@@ -1,4 +1,4 @@
-import css from "../Date/Date.module.css";
+import css from "../DateCalendar/DateCalendar.module.css";
 import "react-datetime/css/react-datetime.css";
 
 import Datetime from "react-datetime";
@@ -6,7 +6,7 @@ import moment from "moment";
 
 import React, { useState, useEffect } from "react";
 
-const Date = ({ name }) => {
+const DateCalendar = ({ name }) => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
@@ -59,4 +59,4 @@ const Date = ({ name }) => {
   );
 };
 
-export default Date;
+export default DateCalendar;

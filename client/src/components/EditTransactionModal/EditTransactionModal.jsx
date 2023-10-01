@@ -1,20 +1,23 @@
 import { useState } from "react";
 import Modal from "react-modal";
+import Notiflix from "notiflix";
 
-import ButtonAdd from "../ButtonAdd/ButtonAdd";
+// import ButtonAdd from "../ButtonAdd/ButtonAdd";
 // import ButtonCancel from "../../components/ButtonCancel/ButtonCancel";
 import css from "../EditTransactionModal/EditTransactionModal.module.css";
 
 import React from "react";
-import TransactionsDropdown from "../TransactionsDropdown/TransactionsDropdown";
+// import TransactionsDropdown from "../TransactionsDropdown/TransactionsDropdown";
 
 import FormInput from "../FormInput/FormInput";
 import IncomeBar from "../IncomeBar/IncomeBar";
 import TextArea from "../TextArea/TextArea";
-import Date from "../Date/Date";
+import DateCalendar from "../DateCalendar/DateCalendar";
 
 import indicative from "indicative";
 import { useDispatch } from "react-redux";
+
+import { editTransaction } from "../../redux/finance/financeOperations";
 
 // Make sure to set appElement to the root of your app for accessibility
 Modal.setAppElement("#root");
@@ -41,38 +44,50 @@ const EditTransactionModal = () => {
     setExpense(false);
   };
 
-  const handleSaveTransaction = () => {
-    // Implement your logout logic here
-    // Example: Perform a logout API call or clear user session
-    // After successful logout, you can redirect the user to the login page or another appropriate action.
+  const dispatch = useDispatch();
 
-    // For this example, we will simply call the onLogout callback and close the modal.
-    if (onEditTransaction) {
-      onEditTransaction();
-    }
+  const handleSaveTransaction = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(
+      editTransaction({
+        date: Date.parse(
+          form.elements.date.value.split("-").reverse().join(" ")
+        ),
+        income: !expense,
+        category: expense ? form.elements.select.value : "income",
+        comment: form.elements.comment.value
+          ? form.elements.comment.value
+          : " ",
+        sum: Math.round(form.elements.amount.value),
+      })
+    );
+
+    form.reset();
+
     closeModal();
   };
 
-  const options = [
-    "Main expenses",
-    "Products",
-    "Car",
-    "Self care",
-    "Child care",
-    "Household products",
-    "Education",
-    "Leisure",
-    "Entertainment",
-    "Other expenses",
-  ];
+  // const options = [
+  //   "Main expenses",
+  //   "Products",
+  //   "Car",
+  //   "Self care",
+  //   "Child care",
+  //   "Household products",
+  //   "Education",
+  //   "Leisure",
+  //   "Entertainment",
+  //   "Other expenses",
+  // ];
 
-  function Select() {
-    return (
-      <div className={css.Select}>
-        <TransactionsDropdown options={options} />
-      </div>
-    );
-  }
+  // function Select() {
+  //   return (
+  //     <div className={css.Select}>
+  //       <TransactionsDropdown options={options} />
+  //     </div>
+  //   );
+  // }
 
   // const isExpense = true;
 
@@ -126,7 +141,6 @@ const EditTransactionModal = () => {
             className={css.addTransactionForm}
             onSubmit={handleSaveTransaction}
           >
-            {expense && <Select />}
             <div className={css.tabletVersion}>
               <FormInput
                 type="amount"
@@ -134,7 +148,7 @@ const EditTransactionModal = () => {
                 placeholder="0.00"
                 className={css.amount}
               ></FormInput>
-              <Date />
+              <DateCalendar />
             </div>
             <TextArea
               type="comment"
