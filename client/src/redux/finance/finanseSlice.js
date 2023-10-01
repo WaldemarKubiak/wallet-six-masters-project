@@ -11,10 +11,25 @@ const financeInitialState = {
     error: null,
   },
   transcactions: {
-    data: [],
-    isLoading: false,
-    error: null,
-  },
+		data: {
+			stats: [
+				{ category: 'Main expenses', color: '#ffffff', total: 0 },
+				{ category: 'Products', color: '#ffffff', total: 0 },
+				{ category: 'Car', color: '#ffffff', total: 0 },
+				{ category: 'Self care', color: '#ffffff', total: 0 },
+				{ category: 'Child care', color: '#ffffff', total: 0 },
+				{ category: 'Household products', color: '#ffffff', total: 0 },
+				{ category: 'Education', color: '#ffffff', total: 0 },
+				{ category: 'Leisure', color: '#ffffff', total: 0 },
+				{ category: 'Entertainment', color: '#ffffff', total: 0 },
+				{ category: 'Other expenses', color: '#ffffff', total: 0 },
+			],
+			expenses: 0,
+			income: 0,
+			isLoading: false,
+			error: null,
+		},
+	},
   addedTransactions: {
     data: null,
     isLoading: false,
@@ -96,6 +111,7 @@ const financeSlice = createSlice({
         (state.editTransaction.data = action.payload);
     });
   },
+
 });
 
 export const { importInfoData, importEditTransactionData } =

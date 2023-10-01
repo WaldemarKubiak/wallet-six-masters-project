@@ -1,0 +1,21 @@
+.doughnut {
+	position: relative;
+	margin-right: 20px;
+	width: 280px;
+	height: 280px;
+	margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+	.doughnut {
+		width: 336px;
+		height: 336px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.doughnut {
+		width: 288px;
+		height: 288px;
+	}
+}
