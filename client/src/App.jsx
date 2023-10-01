@@ -13,19 +13,23 @@ import CurrencyPage from "./pages/CurrencyPage/CurrencyPage";
 import { selectIsLoggedIn } from "./redux/user/userSelectors";
 import { LoaderSpinner } from "./components/LoaderSpinner/loaderSpinner";
 import { getFinance } from "./redux/finance/financeOperations";
+import DiagramTab from './pages/DiagramTab/DiagramTab';
 
 function App() {
 	const dispatch = useDispatch();
 	const { isRefreshing } = useAuth();
 	const isLoggedIn = useSelector(selectIsLoggedIn);
 
+
 	useEffect(() => {
 		dispatch(refreshUser());
 	}, [dispatch]);
 
+
 	useEffect(() => {
 		if (selectIsLoggedIn) dispatch(getFinance());
 	}, [dispatch, isLoggedIn]);
+
 
 	return isRefreshing ? (
 		<h2>Loading...</h2>
@@ -42,6 +46,7 @@ function App() {
 				/>
 				<Route path="/home" element={<DashboardPage />} />
 				<Route path="/currency" element={<CurrencyPage />} />
+        <Route path='/statistics' element={<DiagramTab />} />
 			</Routes>
 		</>
 	);
