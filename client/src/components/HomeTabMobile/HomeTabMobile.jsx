@@ -30,52 +30,58 @@ export const HomeTabMobile = () => {
   };
   return (
     <ul className={css.tablesList}>
-      {financeData.map(item => (
-        <li key={nanoid()} className={css.tableItem}>
-          <ul>
-            <li className={css.dataItem}>
-              <p className={css.dataName}>Date</p>
-              <p className={css.dataVal}>{cutDate(item.date)}</p>
+      {financeData.length > 0 ? (
+        <>
+          {financeData.map(item => (
+            <li key={nanoid()} className={css.tableItem}>
+              <ul>
+                <li className={css.dataItem}>
+                  <p className={css.dataName}>Date</p>
+                  <p className={css.dataVal}>{cutDate(item.date)}</p>
+                </li>
+                <li className={css.dataItem}>
+                  <p className={css.dataName}>Type</p>
+                  <p className={css.dataVal}>{item.income ? '+' : '-'}</p>
+                </li>
+                <li className={css.dataItem}>
+                  <p className={css.dataName}>Category</p>
+                  <p className={css.dataVal}>{item.category}</p>
+                </li>
+                <li className={css.dataItem}>
+                  <p className={css.dataName}>Comment</p>
+                  <p className={css.dataVal}>{item.comment}</p>
+                </li>
+                <li className={css.dataItem}>
+                  <p className={`${css.dataName}`}>Sum</p>
+                  <p
+                    className={`${css.dataVal} ${
+                      item.income ? css.isSum : css.noSum
+                    }`}
+                  >
+                    {item.sum}
+                  </p>
+                </li>
+                <li className={css.dataItem}>
+                  <button
+                    className={css.button}
+                    onClick={() => handleDeleteFinance(item._id)}
+                  >
+                    Delete
+                  </button>
+                  <button
+                    className={css.buttonEdit}
+                    onClick={() => handleEditFinance(item._id)}
+                  >
+                    <MdEdit size={24} className={css.icon} /> Edit
+                  </button>
+                </li>
+              </ul>
             </li>
-            <li className={css.dataItem}>
-              <p className={css.dataName}>Type</p>
-              <p className={css.dataVal}>{item.income ? '+' : '-'}</p>
-            </li>
-            <li className={css.dataItem}>
-              <p className={css.dataName}>Category</p>
-              <p className={css.dataVal}>{item.category}</p>
-            </li>
-            <li className={css.dataItem}>
-              <p className={css.dataName}>Comment</p>
-              <p className={css.dataVal}>{item.comment}</p>
-            </li>
-            <li className={css.dataItem}>
-              <p className={`${css.dataName}`}>Sum</p>
-              <p
-                className={`${css.dataVal} ${
-                  item.income ? css.isSum : css.noSum
-                }`}
-              >
-                {item.sum}
-              </p>
-            </li>
-            <li className={css.dataItem}>
-              <button
-                className={css.button}
-                onClick={() => handleDeleteFinance(item._id)}
-              >
-                Delete
-              </button>
-              <button
-                className={css.buttonEdit}
-                onClick={() => handleEditFinance(item._id)}
-              >
-                <MdEdit size={24} className={css.icon} /> Edit
-              </button>
-            </li>
-          </ul>
-        </li>
-      ))}
+          ))}
+        </>
+      ) : (
+        <p>No finance data</p>
+      )}
     </ul>
   );
 };
