@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { getFinance } from './financeOperations';
-import { getTransactions } from './financeOperations';
+import { createSlice } from "@reduxjs/toolkit";
+import { getFinance } from "./financeOperations";
+import { getTransactions } from "./financeOperations";
 
 const financeInitialState = {
 	finances: {
@@ -11,14 +11,14 @@ const financeInitialState = {
 	transcactions: {
 		data: {
 			stats: [
-				{ category: 'Main expenses', color: '##FED057', total: 10 },
+				{ category: 'Main expenses', color: '#ffffff', total: 0 },
 				{ category: 'Products', color: '#ffffff', total: 0 },
 				{ category: 'Car', color: '#ffffff', total: 0 },
-				{ category: 'Self care', color: '#FD9498', total: 20 },
+				{ category: 'Self care', color: '#ffffff', total: 0 },
 				{ category: 'Child care', color: '#ffffff', total: 0 },
 				{ category: 'Household products', color: '#ffffff', total: 0 },
 				{ category: 'Education', color: '#ffffff', total: 0 },
-				{ category: 'Leisure', color: '#DAF7E1', total: 20 },
+				{ category: 'Leisure', color: '#ffffff', total: 0 },
 				{ category: 'Entertainment', color: '#ffffff', total: 0 },
 				{ category: 'Other expenses', color: '#ffffff', total: 0 },
 			],
@@ -31,13 +31,13 @@ const financeInitialState = {
 };
 
 const financeSlice = createSlice({
-	name: 'finance',
+	name: "finance",
 	initialState: financeInitialState,
 	reducers: {
-		importInfoData: state => state,
+		importInfoData: (state) => state,
 	},
-	extraReducers: builder => {
-		builder.addCase(getFinance.pending, state => {
+	extraReducers: (builder) => {
+		builder.addCase(getFinance.pending, (state) => {
 			state.finances.isLoading = true;
 		});
 		builder.addCase(getFinance.rejected, (state, action) => {
@@ -50,7 +50,7 @@ const financeSlice = createSlice({
 				(state.finances.data = action.payload);
 		});
 
-		builder.addCase(getTransactions.pending, state => {
+		builder.addCase(getTransactions.pending, (state) => {
 			state.transcactions.isLoading = true;
 		});
 		builder.addCase(getTransactions.rejected, (state, action) => {

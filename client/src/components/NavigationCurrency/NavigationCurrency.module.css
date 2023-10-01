@@ -1,0 +1,32 @@
+/*Mobile*/
+
+.navigation_currency {
+	display: flex;
+	gap: 32px;
+	justify-content: center;
+}
+.navigation_currency__item {
+	width: 44px;
+	height: 44px;
+	background-color: #6e78e8;
+	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+.navigation_currency__item:hover {
+	background-color: #4a56e2;
+}
+.navigation_currency__item_blue {
+	width: 44px;
+	height: 44px;
+	background-color: #4a56e2;
+	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ffffff;
+	cursor: pointer;
+}

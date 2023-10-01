@@ -5,16 +5,14 @@ import { selectFinancesIsLoading } from '../../redux/finance/financeSelectors';
 import { selectGetFinances } from '../../redux/finance/financeSelectors';
 import { useDispatch } from 'react-redux';
 
-
 export const HomeTab = () => {
   const dispatch = useDispatch();
   const financeData = useSelector(selectGetFinances);
   const financesLoading = useSelector(selectFinancesIsLoading);
 
-  const sortedData = financeData.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
-
+  // const sortedData = financeData.sort(
+  // 	(a, b) => new Date(b.date) - new Date(a.date)
+  // );
   const handleEditFinance = id => {
     //open modal with id of financial
     //dispatch(EditModal())
@@ -46,13 +44,19 @@ export const HomeTab = () => {
         </thead>
         {financeData.length > 0 ? (
           <tbody>
-            {sortedData.map((item, index) => (
+            {financeData.map((item, index) => (
               <tr key={item._id} className={css.tableRow}>
-                <td>{cutDate(item.date)}</td>
-                <td>{item.income ? '+' : '-'}</td>
-                <td>{item.category}</td>
-                <td>{item.comment}</td>
-                <td>{item.sum}</td>
+                <td className={css.tableRowTd}>{cutDate(item.date)}</td>
+                <td className={css.tableRowTd}>{item.income ? '+' : '-'}</td>
+                <td className={css.tableRowTd}>{item.category}</td>
+                <td className={css.tableRowTd}>{item.comment}</td>
+                <td
+                  className={`${css.tableRowTd} ${
+                    item.income ? css.isSum : css.noSum
+                  }`}
+                >
+                  {item.sum}
+                </td>
                 <td>
                   <button
                     className={css.buttonEdit}
@@ -75,11 +79,11 @@ export const HomeTab = () => {
         ) : (
           <tbody>
             <tr key="example" className={css.tableRow}>
-              <td>10-10-2023</td>
-              <td>example</td>
-              <td>example</td>
-              <td>example</td>
-              <td>example</td>
+              <td style={{ color: 'grey' }}>date</td>
+              <td>type</td>
+              <td>category</td>
+              <td>comm</td>
+              <td>10</td>
               <td>
                 <button className={css.buttonEdit}>
                   <MdEdit size={24} className={css.icon} />

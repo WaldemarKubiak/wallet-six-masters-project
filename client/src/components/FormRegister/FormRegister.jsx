@@ -50,9 +50,11 @@ const FormRegister = () => {
           );
           form.reset();
           Notiflix.Notify.init({
-            timeout: 5000,
+            timeout: 9000,
           });
-          Notiflix.Notify.success("Passwords must be the same.");
+          Notiflix.Notify.success(
+            "Your registration is complete. Please check your email and confirm your account to start using platform."
+          );
         } else {
           Notiflix.Notify.init({
             timeout: 5000,
