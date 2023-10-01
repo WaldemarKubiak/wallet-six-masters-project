@@ -9,15 +9,11 @@ const DiagramTab = () => {
 	const dataToRender = useSelector(selectTransactionsData);
 
 	return (
-		<div className={css.containerBackground}>
-			<div className={css.container}>
-				<div className={css.diagramWrap}>
-					<h1 className={css.diagramTitle}>Statistic</h1>
-					<Chart dataToRender={dataToRender} />
-				</div>
-				<div className={css.containerDiagramTab}>
-					<TableChart dataToRender={dataToRender} />
-				</div>
+		<div className={css.container}>
+			<p className={css.diagramTitle}>Statistic</p>
+			<div className={css.diagramWrap}>
+				<Chart dataToRender={dataToRender} />
+				<TableChart dataToRender={dataToRender} />
 			</div>
 		</div>
 	);

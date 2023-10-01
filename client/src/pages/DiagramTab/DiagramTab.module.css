@@ -1,144 +1,35 @@
-.containerBackground {
-	background: rgba(255, 255, 255, 0.4);
-	/* background-color: rgb(220, 222, 224); */
-	backdrop-filter: blur(25px);
-	width: 100%;
+.container {
+	display: flex;
+	flex-direction: column;
+	padding-top: 40px;
+	background-color: rgba(255, 255, 255, 0.4);
+
+	@media sreen and (min-width: 768px) {
+		flex-direction: row;
+		padding-left: 20px;
+	}
 }
 
 .diagramWrap {
-	margin-right: 62px;
-	/* display: flex;
-	flex-direction: column; */
-
-	/* background-color: rgba(255, 255, 255, 0.40);
-	background-color: aquamarine;
-	backdrop-filter: blur(25px); */
-
-	/* font-family: sans-serif; */
-	/* text-align: center; */
-	/* display: flex; */
-
-	/* margin: 0 auto;
-	width: 100%;
-	min-width: 320px;
-	padding: 0 20px; */
-}
-
-h1 {
-	margin-bottom: 20px;
-	font-family: 'Poppins';
-	font-weight: 400;
-	font-size: 30px;
-	line-height: 45px;
-}
-
-@media screen and (min-width: 768px) {
-	.containerBackground {
-		background: rgba(255, 255, 255, 0.4);
-		backdrop-filter: blur(25px);
-		width: 100%;
-	}
-	.diagramWrap {
-		margin-right: auto;
-	}
-	.diagramTitle {
-		margin-left: 20px;
-	}
-}
-
-@media screen and (min-width: 1280px) {
-	.container {
-		display: flex;
-		justify-content: space-between;
-	}
-	.containerDiagramTab {
-		width: 395px;
-		margin-right: 15px;
-	}
-	.containerBackground {
-		/* background: var(--accent-background-color); */
-		background: rgba(255, 255, 255, 0.4);
-		backdrop-filter: blur(25px);
-		width: 100%;
-	}
-}
-
-/* @media screen and (min-width: 1280px) {
-	.diagramWrap {
-		padding-top: 40px;
-		padding-left: 20px;
-		background-color: red;
-	}
-} */
-
-/* .chartSections {
-	/* display: flex; */
-/* flex-direction: column; */
-/* justify-content: space-between; */
-/* } */
-
-/* @media screen and (min-width: 768px) {
-	.chartSections {
-		display: flex;
-		justify-content: space-between;
-		flex-direction: column;
-		/* flex-direction: wrap; */
-/* align-items: center;
-		gap: 32px;
-		background-color: blue;
-	} */
-/* } */
-
-/* @media screen and (min-width: 480px) {
-	.diagramWrap {
-		width: 480px;
-	}
-}
-@media screen and (min-width: 768px) {
-	.diagramWrap {
-		display: flex;
-		flex-direction: wrap;
-		width: 768px;
-		padding: 0 32px;
-	}
-}
-@media screen and (min-width: 1280px) {
-	.diagramWrap {
-		width: 1280px;
-		padding: 0 16px 0 18px;
-	}
-} */
-
-/* .diagramTitle {
-	/* font-family: "Poppins"; */
-/* font-size: 30px;
-	font-style: normal;
-	font-weight: 400;
-	margin-bottom: 20px;
 	display: flex;
-	flex-direction: column; */
+	flex-direction: column;
+	gap: 32px;
 
-/* color: #000;
-	text-align: start;
-	/* font-family: Poppins; */
-/* font-size: 30px;
+	@media (min-width: 768px) {
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: flex-start;
+	}
+}
+
+.diagramTitle {
+	font-family: 'Poppins';
+	font-size: 30px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: normal;
-	margin-top: 0px;
-	padding-top: 40px; */
-/* } */
-
-/* @media screen and (min-width: 768px) {
-	.diagramTitle {
+	margin-bottom: 8px;
+	@media (mmin-width: 768px) {
 		text-align: center;
-		margin-bottom: 8px;
-		/* position: relative; */
-/* padding-top: 20px; */
-/* color: red; */
-/* } */
-/* }  */
-
-/* .chartWrap {
-	background-color: blueviolet;
-} */
+		margin-bottom: 20px;
+	}
+}

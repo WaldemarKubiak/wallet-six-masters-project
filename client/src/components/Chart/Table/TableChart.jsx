@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import css from './TableChart.module.css';
-// import css from './TableCh.module.css';
 import { getTransactions } from '../../../redux/finance/financeOperations';
 import { nanoid } from 'nanoid';
 
@@ -43,7 +42,7 @@ const TableChart = ({ dataToRender }) => {
 		})
 		.replace(',', '.');
 
-	const [selectedMonth, setSelectedMonth] = useState('09');
+	const [selectedMonth, setSelectedMonth] = useState('01');
 	const [selectedYear, setSelectedYear] = useState('2023');
 	const dispatch = useDispatch();
 

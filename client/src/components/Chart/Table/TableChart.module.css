@@ -2,13 +2,8 @@
 	margin-bottom: 20px;
 }
 
-.tableWra {
-	background-color: #ff6596;
-}
-
 .selectMonth,
 .selectYear {
-	margin: 0 auto;
 	padding-left: 20px;
 	padding-right: 20px;
 	display: flex;
@@ -41,17 +36,14 @@
 		margin-bottom: 20px;
 		display: flex;
 		position: relative;
-		/* margin-top: 40px; */
 	}
 	.selectMonth {
 		width: 160px;
-		/* cursor: pointer; */
 	}
 	.selectYear {
 		margin-top: 0px;
 		margin-left: 16px;
 		cursor: pointer;
-		/* margin-top: 97px; */
 	}
 }
 
@@ -72,97 +64,10 @@
 	}
 }
 
-/* .selectMonth option {
-	background-color: lightgray;
-} */
-
-/* selectMonth option:checked {
-	background-color: white;
-} */
-
-/* .selectMonth:hover,
-.selectYear:hover {
-	background-color: lightgray;
-} */
-
-/* .selectMonth:focus {
-	background-color: lightgray;
-	} */
-/* 
-.chartWrap {
-	box-sizing: border-box;
-	width: auto;
-	background-color: #24cca7;
-} */
-
-/* .tableWrap {
-	background-color: #ff6596;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 380px;
-	padding: 0 20px;
-	gap: 14px;
-} */
-
-/* .selectDateWrappe {
-	display: flex;
-	flex-direction: column;
-	margin-top: 32px;
-	width: 280px;
-
-	justify-content: space-between;
-	align-items: center;
-	gap: 20px;
-
-	width: 100%;
-} */
-
-/* .selectMont,
-.selectYea {
-	max-width: 280;
-	width: 100%;
-	border-radius: 30px;
-	height: 50px;
-	border-color: transparent;
-	overflow: hidden;
-	cursor: pointer;
-	font-style: normal;
-	font-weight: 400;
-	line-height: normal;
-} */
-/* padding: 12px 0 14px 20px; */
-/* border: 1px solid #000; */
-/* font-family: Circle; */
-/* font-size: 16px;
-
-	/* display: flex; */
-/* flex-direction: column; */
-/* justify-content: space-between; */
-/* width: 100%; */
-/* flex: 1;
-	margin-right: 10px;
-	width: 50%; */
-
-/* .selectMonth:hover,
-.selectYear:hover {
-	background-color: gray;
-	cursor: pointer;
-	border-radius: 50px;
-	background: rgba(255, 255, 255, 0.7);
-} */
-
-/* .selectMonth option[selected] {
-	background-color: white;
-	border-color: transparent;
-} */
-
 .statisticsList {
 	color: #000;
 	width: 280px;
-	/* margin: auto auto; */
 	background-color: transparent;
-	background-color: #24cca7;
 }
 
 .header {
@@ -172,24 +77,9 @@
 	justify-content: space-between;
 	border-radius: 30px;
 	background: #fff;
-	/* margin: auto auto; */
-	/* background-color: transparent; */
-	/* margin-bottom: 20px; */
-	/* background-color: red; */
 }
 
-/* .header {
-	width: 280px;
-	height: 58px;
-	background-color: #ffffff;
-	background-color: #ff6596;
-	padding: 15px 0 15px 0;
-	border-radius: 30px;
-} */
-
 .headerItem {
-	/* background-color: #ffffff; */
-	/* background-color: #24cca7; */
 	color: #000;
 	font-family: 'Circe';
 	font-size: 18px;
@@ -198,28 +88,9 @@
 	line-height: normal;
 	margin: 0;
 	padding: 15px 20px;
-	/* flex-grow: 1; */
-	/* width: 280px; */
-	/* height: 58px; */
-	/* padding: 15px; */
-	/* border: none; */
-	/* max-width: 50%; */
-	/* text-align: space-between; */
-
-	/* background-color: #808080; */
-	/* font-size: 18px;
-	font-weight: 700;
-	margin: 0;
-	padding: 10px;
-	border-radius: 0;
-	border: none;
-	width: 50%;
-	text-align: space-between; */
 }
 
 .headerItem:first-child {
-	/* border-radius: 30px 0 0 30px; */
-	/* padding-left: 20px; */
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;
 	padding-left: 20px;
@@ -231,12 +102,9 @@
 	padding-right: 20px;
 }
 
-/* .header, */
-/* .listItem, */
 .results {
 	display: flex;
 	justify-content: space-between;
-	/* width: 100%; */
 }
 
 .listItemWrap {
@@ -263,7 +131,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	/* gap: 50px; */
 	padding: 16px 20px;
 	border-bottom: 1px solid #dcdcdf;
 }
@@ -275,9 +142,6 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
-
-	/* max-width: 150px; */
-
 	text-wrap: wrap;
 }
 
@@ -314,32 +178,3 @@
 		width: 395px;
 	}
 }
-
-/* @media screen and (min-width: 768px) {
-	.tableWrap {
-		width: 336px;
-		gap: 16px;
-	}
-
-	.header {
-		width: 336px;
-	}
-
-	.list {
-		gap: 32px;
-	}
-}
-
-@media screen and (min-width: 1024px) {
-	.tableWrap {
-		width: 395px;
-	}
-
-	.header {
-		width: 395px;
-	}
-
-	.list {
-		gap: 28px;
-	}
-} */
