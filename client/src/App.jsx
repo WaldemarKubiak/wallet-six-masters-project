@@ -21,9 +21,9 @@ function App() {
 	const isLoggedIn = useSelector(selectIsLoggedIn);
 
 
-	useEffect(() => {
-		dispatch(refreshUser());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
 
 	useEffect(() => {
@@ -32,7 +32,7 @@ function App() {
 
 
 	return isRefreshing ? (
-		<h2>Loading...</h2>
+		 <LoaderSpinner />
 	) : (
 		<>
 			<Routes>

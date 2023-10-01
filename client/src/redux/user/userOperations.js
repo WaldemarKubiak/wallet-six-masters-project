@@ -48,7 +48,7 @@ export const signIn = createAsyncThunk(
 
 export const signOut = createAsyncThunk("auth/signOut", async (_, thunkAPI) => {
   try {
-    await axios.post("/users/logout");
+    await axios.get("/users/logout");
     clearAuthHeader();
   } catch (e) {
     Notiflix.Notify.init({

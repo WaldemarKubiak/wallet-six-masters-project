@@ -4,7 +4,7 @@ import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage";
 import { userReducer } from "./user/userSlice";
 import { financeReducer } from "./finance/finanseSlice";
-// import { globalReducer } from './global/globalSlice';
+import { globalReducer } from "./global/globalSlice";
 
 import {
   FLUSH,
@@ -26,6 +26,7 @@ export const store = configureStore({
   reducer: {
     user: persistReducer(userPersistConfig, userReducer),
     finance: financeReducer,
+    global: globalReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: {
