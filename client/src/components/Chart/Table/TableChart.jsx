@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import css from './TableChart.module.css';
+// import css from './TableCh.module.css';
 import { getTransactions } from '../../../redux/finance/financeOperations';
 import { nanoid } from 'nanoid';
 
@@ -69,19 +70,20 @@ const TableChart = ({ dataToRender }) => {
 
 	return (
 		<div className={css.chartWrap}>
-			<div className={css.tableWrap}>
-				<div className={css.selectDateWrapper}>
-					<select
-						className={css.selectMonth}
-						value={selectedMonth}
-						onChange={handleMonthChange}>
-						{Object.keys(monthToNumber).map(month => (
-							<option key={month} value={monthToNumber[month]}>
-								{month}
-							</option>
-						))}
-					</select>
-
+			<div className={css.tableWra}>
+				<div className={css.dateBox}>
+					<div className={css.month}>
+						<select
+							className={css.selectMonth}
+							value={selectedMonth}
+							onChange={handleMonthChange}>
+							{Object.keys(monthToNumber).map(month => (
+								<option key={month} value={monthToNumber[month]}>
+									{month}
+								</option>
+							))}
+						</select>
+					</div>
 					<select
 						className={css.selectYear}
 						value={selectedYear}
@@ -95,38 +97,36 @@ const TableChart = ({ dataToRender }) => {
 						)}
 					</select>
 				</div>
-
-				<div className={css.header}>
-					<div className={css.headerItem}>Category</div>
-					<div className={css.headerItem}>Sum</div>
-				</div>
-
-				<ul className={css.list}>
-					{dataStatsArr.map(({ category, color, total }) => (
-						<li className={css.listItem} key={nanoid()}>
-							<div className={css.listItemWrap}>
-								<div
-									style={{
-										backgroundColor: color,
-										width: '24px',
-										height: '24px',
-										borderRadius: '2px',
-										marginRight: '16px',
-									}}></div>
-								<p className={css.category}>{category}</p>
-							</div>
-							<p>{total.toFixed(2)}</p>
-						</li>
-					))}
-				</ul>
-				<div className={css.resultsWrap}>
-					<div className={css.results}>
-						<p className={css.resultsTitle}>Expenses:</p>
-						<p className={css.resultsExpenses}>{formattedExpenses}</p>
+				<div className={css.statisticsList}>
+					<div className={css.header}>
+						<div className={css.headerItem}>Category</div>
+						<div className={css.headerItem}>Sum</div>
 					</div>
-					<div className={css.results}>
-						<p className={css.resultsTitle}>Income:</p>
-						<p className={css.resultsIncome}>{formattedIncome}</p>
+
+					{dataStatsArr.map(({ category, color, total }) => (
+						<ul className={css.list} key={nanoid()}>
+							<li className={css.listItem}>
+								<div className={css.listItemWrap}>
+									<div
+										className={css.colorBox}
+										style={{
+											backgroundColor: color,
+										}}></div>
+									<p className={css.category}>{category}</p>
+								</div>
+								<p>{total.toFixed(2)}</p>
+							</li>
+						</ul>
+					))}
+					<div className={css.resultsWrap}>
+						<div className={css.results}>
+							<p className={css.resultsTitle}>Expenses:</p>
+							<p className={css.resultsExpenses}>{formattedExpenses}</p>
+						</div>
+						<div className={css.results}>
+							<p className={css.resultsTitle}>Income:</p>
+							<p className={css.resultsIncome}>{formattedIncome}</p>
+						</div>
 					</div>
 				</div>
 			</div>

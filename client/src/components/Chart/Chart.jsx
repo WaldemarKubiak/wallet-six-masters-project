@@ -69,14 +69,8 @@ const Chart = ({ dataToRender }) => {
 	};
 
 	return (
-		<div>
-			<div>
-				<Doughnut
-					className={css.chartWrap}
-					data={data}
-					options={options}
-					plugins={[textCenter]}></Doughnut>
-			</div>
+		<div className={css.doughnut}>
+			<Doughnut data={data} options={options} plugins={[textCenter]}></Doughnut>
 		</div>
 	);
 };

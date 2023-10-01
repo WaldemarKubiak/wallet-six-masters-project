@@ -11,14 +11,14 @@ const financeInitialState = {
 	transcactions: {
 		data: {
 			stats: [
-				{ category: 'Main expenses', color: '#ffffff', total: 10 },
+				{ category: 'Main expenses', color: '##FED057', total: 10 },
 				{ category: 'Products', color: '#ffffff', total: 0 },
 				{ category: 'Car', color: '#ffffff', total: 0 },
-				{ category: 'Self care', color: '#ffffff', total: 0 },
+				{ category: 'Self care', color: '#FD9498', total: 20 },
 				{ category: 'Child care', color: '#ffffff', total: 0 },
 				{ category: 'Household products', color: '#ffffff', total: 0 },
 				{ category: 'Education', color: '#ffffff', total: 0 },
-				{ category: 'Leisure', color: '#ffffff', total: 0 },
+				{ category: 'Leisure', color: '#DAF7E1', total: 20 },
 				{ category: 'Entertainment', color: '#ffffff', total: 0 },
 				{ category: 'Other expenses', color: '#ffffff', total: 0 },
 			],
