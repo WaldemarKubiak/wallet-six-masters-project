@@ -21,6 +21,7 @@ const Chart = ({ dataToRender }) => {
 		dataStatsArr.push(dataStats[obj]);
 	}
 
+
 	const categories = dataStatsArr.map(item => item.category);
 	const values = dataStatsArr.map(item => item.total);
 	const colors = dataStatsArr.map(item => item.color);

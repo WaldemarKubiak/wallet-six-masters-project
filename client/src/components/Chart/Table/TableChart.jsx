@@ -42,7 +42,7 @@ const TableChart = ({ dataToRender }) => {
 		})
 		.replace(',', '.');
 
-	const [selectedMonth, setSelectedMonth] = useState('01');
+	const [selectedMonth, setSelectedMonth] = useState('10');
 	const [selectedYear, setSelectedYear] = useState('2023');
 	const dispatch = useDispatch();
 
@@ -117,6 +117,7 @@ const TableChart = ({ dataToRender }) => {
 							</li>
 						</ul>
 					))}
+
 					<div className={css.resultsWrap}>
 						<div className={css.results}>
 							<p className={css.resultsTitle}>Expenses:</p>
