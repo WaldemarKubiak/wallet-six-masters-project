@@ -14,32 +14,31 @@ import CurrencyPage from "./pages/CurrencyPage/CurrencyPage";
 import { LoaderSpinner } from "./components/LoaderSpinner/loaderSpinner";
 
 function App() {
-	const dispatch = useDispatch();
-	const { isRefreshing } = useAuth();
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
-	useEffect(() => {
-		dispatch(refreshUser());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
-
-	return isRefreshing ? (
-		<h2>Loading...</h2>
-	) : (
-		<>
-			<Routes>
-				<Route
-					path="/"
-					element={<RestrictedRoute component={<HomePage />} />}
-				/>
-				<Route
-					path="/register"
-					element={<RestrictedRoute component={<Registration />} />}
-				/>
-				<Route path="/home" element={<DashboardPage />} />
-				<Route path="/currency" element={<CurrencyPage />} />
-			</Routes>
-		</>
-	);
+  return isRefreshing ? (
+    <LoaderSpinner />
+  ) : (
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={<RestrictedRoute component={<HomePage />} />}
+        />
+        <Route
+          path="/register"
+          element={<RestrictedRoute component={<Registration />} />}
+        />
+        <Route path="/home" element={<DashboardPage />} />
+        <Route path="/currency" element={<CurrencyPage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;

@@ -1,0 +1,27 @@
+.dateBox {
+  border-bottom: solid 1px #e0e0e0;
+  padding-left: 10px;
+  position: relative;
+}
+
+.dateInput {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 8px 8px 20px;
+}
+
+input {
+  border: none;
+}
+
+.calendarIcon {
+  position: absolute;
+  right: 30px;
+  top: 11px;
+}
+
+@media screen and (min-width: 768px) {
+  .dateInput {
+    padding-bottom: 0;
+  }
+}

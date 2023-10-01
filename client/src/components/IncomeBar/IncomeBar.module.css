@@ -1,0 +1,62 @@
+.incomeText {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 30px;
+  font-family: Circe;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  align-items: center;
+  position: relative;
+}
+
+.rectangle {
+  width: 80px;
+  height: 40px;
+  border: solid 1px #bdbdbd;
+  border-radius: 20px;
+}
+
+.greenCircle {
+  position: absolute;
+  right: 134px;
+  top: -11px;
+}
+
+.redCircle {
+  position: absolute;
+  right: 97px;
+  top: -11px;
+}
+
+.income {
+  color: #24cca7;
+}
+
+.incomeNotActive {
+  color: #e0e0e0;
+  cursor: pointer;
+}
+
+.expense {
+  color: #ff6596;
+}
+
+.expenseNotActive {
+  color: #e0e0e0;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .incomeText {
+    justify-content: center;
+    gap: 20px;
+  }
+  .greenCircle {
+    right: 184px;
+  }
+
+  .redCircle {
+    right: 146px;
+  }
+}

@@ -4,19 +4,24 @@ import NavigationCurrency from "../../components/NavigationCurrency/NavigationCu
 // import DashboardPage from "../DashboardPage/DashboardPage";
 import styles from "./CurrencyPage.module.css";
 
+import Header from "../../components/Header/Header";
+
 function CurrencyPage() {
-	return (
-		<div className={styles.currency_page}>
-			<div className={styles.currency_page__content}>
-				<div className={styles.currency_page__navigation}>
-					<NavigationCurrency />
-				</div>
-				<div>
-					<Currency />
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <>
+      <Header />
+      <div className={styles.currency_page}>
+        <div className={styles.currency_page__content}>
+          <div className={styles.currency_page__navigation}>
+            <NavigationCurrency />
+          </div>
+          <div>
+            <Currency />
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default CurrencyPage;

@@ -1,0 +1,165 @@
+.ModalAddTransaction {
+  position: fixed;
+  z-index: 999999;
+  width: 100%;
+  margin-top: 70px;
+  background-color: white;
+  min-height: 100vh;
+  padding-inline: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.homeScreen__imgBox {
+  display: none;
+  z-index: 10;
+}
+
+.homeScreen__title {
+  margin: 0;
+  color: black;
+  text-align: center;
+  /* font-family: Poppins; */
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.homeScreen__titleBox {
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modalHeaderBox {
+  display: flex;
+
+  justify-content: space-around;
+}
+
+.userLogoutBlock {
+  padding-top: 13px;
+}
+
+.addTransactionTitle {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.5;
+  text-align: center;
+  color: black;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.Select {
+  border-bottom: solid 1px #e0e0e0;
+  padding: 8px 8px 8px 30px;
+}
+
+.close {
+  display: none;
+}
+
+.ButtonCancel {
+  color: #4a56e2;
+  /* font-family: Circe; */
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  text-align: center;
+  display: block;
+  border: solid 1px #4a56e2;
+  border-radius: 20px;
+  padding: 13px 0;
+  width: 300px;
+}
+
+.ButtonCancel:hover {
+  color: #363fab;
+  border-color: #363fab;
+  cursor: pointer;
+}
+
+.ButtonCancel:active {
+  color: #363fab;
+  border-color: #363fab;
+}
+
+.ButtonCancel:focus {
+  color: #363fab;
+  border-color: #363fab;
+  stroke: none;
+}
+
+.amount::target-text {
+  font-weight: 700;
+}
+.buttonSave {
+  color: white;
+  /* font-family: Circe; */
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  text-align: center;
+  display: block;
+  background-color: #24cca7;
+  border: none;
+  border-radius: 20px;
+  padding: 13px 0;
+  width: 300px;
+
+  margin-bottom: 20px;
+}
+
+.buttonSave:hover {
+  background-color: #17836b;
+  border: none;
+}
+
+.buttonSave:active {
+  background-color: #17836b;
+  border: none;
+}
+
+.buttonSave:focus {
+  background-color: #17836b;
+  border: none;
+}
+@media screen and (min-width: 768px) {
+  .tabletVersion {
+    display: flex;
+    gap: 40px;
+  }
+
+  .addTransactionTitle {
+    font-size: 30px;
+  }
+  .inputBox {
+    padding: 30px 50px;
+    position: relative;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 2px;
+    cursor: pointer;
+  }
+}

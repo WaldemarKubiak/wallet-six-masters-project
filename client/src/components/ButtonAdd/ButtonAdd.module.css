@@ -1,0 +1,39 @@
+.buttonAdd {
+  color: white;
+  /* font-family: Circe; */
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 2px;
+  text-align: center;
+  display: block;
+  background-color: #24cca7;
+  border: none;
+  border-radius: 20px;
+  padding: 13px 0;
+  width: 300px;
+
+  margin-bottom: 20px;
+}
+
+.butbuttonAdd:hover {
+  background-color: #17836b;
+  border: none;
+}
+
+.buttonAdd:active {
+  background-color: #17836b;
+  border: none;
+}
+
+.buttonAdd:focus {
+  background-color: #17836b;
+  border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .buttonAdd {
+    width: 300px;
+  }
+}
