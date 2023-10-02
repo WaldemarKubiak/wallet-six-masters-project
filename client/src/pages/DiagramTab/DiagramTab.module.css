@@ -1,35 +1,38 @@
 .container {
-	display: flex;
-	flex-direction: column;
-	padding-top: 40px;
-	background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  margin: 0 auto;
+  width: 280px;
+  background-color: rgba(255, 255, 255, 0.4);
 
-	@media sreen and (min-width: 768px) {
-		flex-direction: row;
-		padding-left: 20px;
-	}
+  @media sreen and (min-width: 768px) {
+    flex-direction: row;
+    padding-left: 20px;
+  }
 }
 
 .diagramWrap {
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 32px; */
 
-	@media (min-width: 768px) {
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: flex-start;
-	}
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 }
 
 .diagramTitle {
-	font-family: 'Poppins';
-	font-size: 30px;
-	font-style: normal;
-	font-weight: 400;
-	margin-bottom: 8px;
-	@media (mmin-width: 768px) {
-		text-align: center;
-		margin-bottom: 20px;
-	}
+  font-family: 'Poppins';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 8px;
+  @media (mmin-width: 768px) {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }

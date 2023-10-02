@@ -6,17 +6,17 @@ import TableChart from '../../components/Chart/Table/TableChart';
 import css from './DiagramTab.module.css';
 
 const DiagramTab = () => {
-	const dataToRender = useSelector(selectTransactionsData);
+  const dataToRender = useSelector(selectTransactionsData);
 
-	return (
-		<div className={css.container}>
-			<p className={css.diagramTitle}>Statistic</p>
-			<div className={css.diagramWrap}>
-				<Chart dataToRender={dataToRender} />
-				<TableChart dataToRender={dataToRender} />
-			</div>
-		</div>
-	);
+  return (
+    <div className={css.container}>
+      <p className={css.diagramTitle}>Statistics</p>
+      <div className={css.diagramWrap}>
+        <Chart dataToRender={dataToRender} />
+        <TableChart dataToRender={dataToRender} />
+      </div>
+    </div>
+  );
 };
 
 export default DiagramTab;
