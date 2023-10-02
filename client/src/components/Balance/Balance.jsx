@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectToken } from "../../redux/auth/auth-selectors";
+import { selectUserToken } from "../../redux/user/userSelectors";
 
 function Balance() {
 	const [balance, setBalance] = useState();
-	const token = useSelector(selectToken);
+	const token = useSelector(selectUserToken);
 
 	useEffect(() => {
 		async function fetch() {
-			const response = await axios(
+			const response = await axios.get(
 				"https://wallet-project-4dhb.onrender.com/api/transactions/stats/balance",
 				{
 					headers: {
@@ -21,10 +21,9 @@ function Balance() {
 			);
 			setBalance(response.data.data.balance);
 		}
-
+		if (token);
 		fetch();
-	}, [token]);
-
+	}, []);
 	return (
 		<div className={styles.balance}>
 			<div className={styles.balance__text}>YOUR BALANCE</div>

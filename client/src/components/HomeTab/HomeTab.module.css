@@ -1,6 +1,7 @@
 .tableWrapper {
   max-height: 60vh;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .table {
@@ -10,7 +11,7 @@
 
 .tableTitles {
   color: #000;
-  font-family: 'Roboto';
+  font-family: 'Circe';
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -21,11 +22,11 @@
   text-align: center;
   padding: 8px;
 }
-.tableRow td {
+.tableRowTd {
   text-align: center;
 
   color: #000;
-  font-family: 'Roboto';
+  font-family: 'Circe';
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -37,9 +38,6 @@
 .tableRow:last-child {
   border-bottom: none;
 }
-/* .tableRow:nth-child(even) {
-    background-color: #f2f2f2; 
-  }  */
 
 .tableRow td {
   padding: 8px;
@@ -51,7 +49,7 @@
   color: #fff;
   text-align: center;
 
-  font-family: 'Roboto';
+  font-family: 'Circe';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -79,4 +77,11 @@
 .tableHeader {
   border-radius: 30px;
   background: #fff;
+}
+
+.isSum {
+  color: #24cca7;
+}
+.noSum {
+  color: #ff6596;
 }

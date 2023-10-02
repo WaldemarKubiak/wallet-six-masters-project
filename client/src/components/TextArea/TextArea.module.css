@@ -1,0 +1,25 @@
+.inputBox {
+  border-bottom: solid 1px #e0e0e0;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.textArea {
+  width: 100%;
+  border: none;
+  height: 84px;
+  font-size: 18px;
+  font-family: Circe;
+  line-height: 1.6;
+  padding: 8px 8px 8px 20px;
+}
+
+.textArea::placeholder {
+  color: #bdbdbd;
+  /* font-family: Circe; */
+  font-weight: 400;
+  font-size: 18px;
+}

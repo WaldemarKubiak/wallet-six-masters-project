@@ -71,7 +71,7 @@ const login = async (req, res, next) => {
     email: user.email,
   };
 
-  const token = jwt.sign(payload, secret, { expiresIn: '1h' });
+  const token = jwt.sign(payload, secret, { expiresIn: '1d' });
 
   await service.saveToken(user.id, token);
 

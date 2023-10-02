@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import Transaction from "../schemas/transaction.model.js";
+import mongoose from 'mongoose';
+import Transaction from '../schemas/transaction.model.js';
 
 const getTransactionById = async (id) => {
   return Transaction.findOne(
@@ -29,8 +29,8 @@ const getTransactions = async (userId, month, year) => {
         owner: userIdAsObjectId,
         $expr: {
           $and: [
-            { $eq: [{ $month: "$date" }, month] },
-            { $eq: [{ $year: "$date" }, year] },
+            { $eq: [{ $month: '$date' }, month] },
+            { $eq: [{ $year: '$date' }, year] },
           ],
         },
       },
@@ -42,6 +42,10 @@ const getTransactions = async (userId, month, year) => {
 
 const updateTransaction = (id, fields) => {
   return Transaction.findByIdAndUpdate({ _id: id }, fields, { new: true });
+};
+
+const removeTransaction = (id) => {
+  return Transaction.findByIdAndRemove({ _id: id });
 };
 
 const getExpenses = async (userId) => {
@@ -57,9 +61,9 @@ const getExpenses = async (userId) => {
     },
     {
       $group: {
-        _id: "$owner",
+        _id: '$owner',
         expenses: {
-          $sum: "$sum",
+          $sum: '$sum',
         },
       },
     },
@@ -84,9 +88,9 @@ const getIncome = async (userId) => {
     },
     {
       $group: {
-        _id: "$owner",
+        _id: '$owner',
         income: {
-          $sum: "$sum",
+          $sum: '$sum',
         },
       },
     },
@@ -103,6 +107,7 @@ const service = {
   getTransactionById,
   addTransaction,
   updateTransaction,
+  removeTransaction,
   getExpenses,
   getIncome,
 };
