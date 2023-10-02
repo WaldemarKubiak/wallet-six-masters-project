@@ -1,5 +1,5 @@
-import service from "../services/transaction.service.js";
-import { getStatistics } from "../helpers/getStatistics.js";
+import service from '../services/transaction.service.js';
+import { getStatistics } from '../helpers/getStatistics.js';
 
 const get = async (req, res, next) => {
   const currentDate = new Date();
@@ -14,7 +14,7 @@ const get = async (req, res, next) => {
     );
 
     res.status(200).json({
-      status: "success",
+      status: 'success',
       code: 200,
       data: {
         transactions,
@@ -33,16 +33,16 @@ const getById = async (req, res, next) => {
     const transaction = await service.getTransactionById(id);
     if (transaction) {
       res.json({
-        status: "success",
+        status: 'success',
         code: 200,
         data: { transaction },
       });
     } else {
       res.status(404).json({
-        status: "error",
+        status: 'error',
         code: 404,
         message: `Transaction not found`,
-        data: "Not Found",
+        data: 'Not Found',
       });
     }
   } catch (e) {
@@ -65,7 +65,7 @@ const add = async (req, res, next) => {
     });
 
     res.status(201).json({
-      status: "success",
+      status: 'success',
       code: 201,
       data: { transaction },
     });
@@ -87,16 +87,41 @@ const update = async (req, res, next) => {
     });
     if (transaction) {
       res.status(200).json({
-        status: "success",
+        status: 'success',
         code: 200,
         data: { transaction },
       });
     } else {
       res.status(404).json({
-        status: "error",
+        status: 'error',
         code: 404,
         message: `Transaction id not found: ${id}`,
-        data: "Not Found",
+        data: 'Not Found',
+      });
+    }
+  } catch (e) {
+    console.error(e);
+    next(e);
+  }
+};
+
+const remove = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const result = await service.removeTransaction(id);
+    if (result) {
+      res.json({
+        status: 'success',
+        code: 200,
+        data: { transaction: result },
+      });
+    } else {
+      res.status(404).json({
+        status: 'error',
+        code: 404,
+        message: `Transaction not found`,
+        data: 'Not Found',
       });
     }
   } catch (e) {
@@ -118,7 +143,7 @@ const getStats = async (req, res, next) => {
     const data = await getStatistics(transactions);
 
     res.status(200).json({
-      status: "success",
+      status: 'success',
       code: 200,
       data,
     });
@@ -137,7 +162,7 @@ const getBalance = async (req, res, next) => {
     const income = incomeArr.length > 0 ? incomeArr[0].income : 0;
 
     res.status(200).json({
-      status: "success",
+      status: 'success',
       code: 200,
       data: { expenses, income, balance: income - expenses },
     });
@@ -152,6 +177,7 @@ const transactionCtrl = {
   getById,
   add,
   update,
+  remove,
   getStats,
   getBalance,
 };
