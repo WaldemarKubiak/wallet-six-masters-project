@@ -5,23 +5,20 @@
   margin: 0 auto;
   width: 280px;
   background-color: rgba(255, 255, 255, 0.4);
+}
 
-  @media sreen and (min-width: 768px) {
-    flex-direction: row;
-    padding-left: 20px;
+@media (min-width: 768px) {
+  .container {
+    display: block;
+    width: 704px;
   }
 }
 
 .diagramWrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* gap: 32px; */
+  position: relative;
 
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    position: absolute;
   }
 }
 
