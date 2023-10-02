@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
 import css from './Chart.module.css';
+import { useEffect, useState } from 'react';
+import { selectUserToken } from '../../redux/user/userSelectors';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 import {
 	Chart as ChartJS,
@@ -21,7 +25,6 @@ const Chart = ({ dataToRender }) => {
 		dataStatsArr.push(dataStats[obj]);
 	}
 
-
 	const categories = dataStatsArr.map(item => item.category);
 	const values = dataStatsArr.map(item => item.total);
 	const colors = dataStatsArr.map(item => item.color);
@@ -39,6 +42,28 @@ const Chart = ({ dataToRender }) => {
 		],
 	};
 
+	const [balance, setBalance] = useState();
+	const token = useSelector(selectUserToken);
+	// console.log(token);
+
+	useEffect(() => {
+		async function fetch() {
+			const response = await axios.get(
+				'https://wallet-project-4dhb.onrender.com/api/transactions/stats/balance',
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				}
+			);
+			setBalance(response.data.data.balance);
+			console.log(response);
+			console.log(balance);
+		}
+		if (token);
+		fetch();
+	}, [balance]);
+
 	const textCenter = {
 		id: 'textCenter',
 		beforeDatasetsDraw(chart) {
@@ -48,12 +73,6 @@ const Chart = ({ dataToRender }) => {
 			ctx.fillStyle = '#000000';
 			ctx.textAlign = 'center';
 			ctx.textBaseline = 'middle';
-			ctx.fillText(
-				// `$${balance}`,
-				`$ 24 000.00`,
-				chart.getDatasetMeta(0).data[0].x,
-				chart.getDatasetMeta(0).data[0].y
-			);
 		},
 	};
 
@@ -72,6 +91,7 @@ const Chart = ({ dataToRender }) => {
 	return (
 		<div className={css.doughnut}>
 			<Doughnut data={data} options={options} plugins={[textCenter]}></Doughnut>
+			<p className={css.balance}>${balance}</p>
 		</div>
 	);
 };

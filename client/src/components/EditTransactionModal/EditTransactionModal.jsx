@@ -93,7 +93,7 @@ const EditTransactionModal = () => {
 
   return (
     <div>
-      <button onClick={openModal}>Edit</button>
+      {/* <button onClick={openModal}>Edit</button> */}
       <Modal
         className={css.ModalAddTransaction}
         isOpen={modalIsOpen}

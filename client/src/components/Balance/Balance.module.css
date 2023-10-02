@@ -9,7 +9,7 @@
 }
 .balance__text {
 	color: #a6a6a6;
-	font-family: "Circe";
+	font-family: 'Circe';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;
@@ -18,7 +18,7 @@
 }
 .balance__amount {
 	color: #000000;
-	font-family: "Poppins";
+	font-family: 'Poppins';
 	font-weight: 700;
 	font-size: 30px;
 	line-height: 1.5;
