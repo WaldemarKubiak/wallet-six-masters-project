@@ -6,8 +6,7 @@ import { selectGetFinances } from "../../redux/finance/financeSelectors";
 import { useDispatch } from "react-redux";
 import { importEditTransactionData } from "../../redux/finance/finanseSlice";
 
-
-const HomeTab = () => {
+export const HomeTab = () => {
   const dispatch = useDispatch();
   // const financeData = useSelector(selectGetFinances);
 
@@ -44,21 +43,20 @@ const HomeTab = () => {
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
+  // const handleEditFinance = (id) => {
+  //   const foundTransaction = financeData.find((element) => element._id === id);
+
+  // const data = {
+  //   date: foundTransaction.date,
+  //   income: foundTransaction.income,
+  //   category: foundTransaction.category,
+  //   comment: foundTransaction.comment,
+  //   sum: foundTransaction.sum,
+  //   id: foundTransaction._id,
+  // };
+  // console.log(data);
+
   const handleEditFinance = (id) => {
-    const foundTransaction = financeData.find((element) => element._id === id);
-
-    const data = {
-      date: foundTransaction.date,
-      income: foundTransaction.income,
-      category: foundTransaction.category,
-      comment: foundTransaction.comment,
-      sum: foundTransaction.sum,
-      id: foundTransaction._id,
-    };
-    console.log(data);
-
- 
-  const handleEditFinance = id => {
     //open modal with id of financial
     dispatch(importEditTransactionData(data));
   };
@@ -92,7 +90,7 @@ const HomeTab = () => {
             {financeData.map((item, index) => (
               <tr key={item._id} className={css.tableRow}>
                 <td className={css.tableRowTd}>{cutDate(item.date)}</td>
-                <td className={css.tableRowTd}>{item.income ? '+' : '-'}</td>
+                <td className={css.tableRowTd}>{item.income ? "+" : "-"}</td>
                 <td className={css.tableRowTd}>{item.category}</td>
                 <td className={css.tableRowTd}>{item.comment}</td>
                 <td
@@ -124,7 +122,7 @@ const HomeTab = () => {
         ) : (
           <tbody>
             <tr key="example" className={css.tableRow}>
-              <td style={{ color: 'grey' }}>date</td>
+              <td style={{ color: "grey" }}>date</td>
               <td>type</td>
               <td>category</td>
               <td>comm</td>
