@@ -1,7 +1,7 @@
 .btn {
   padding: 8px 15px 4px 15px;
   border-radius: 50%;
-  font-family: 'Circe';
+  font-family: "Circe";
   font-size: 45px;
   line-height: 45px;
   font-weight: 400;
@@ -14,6 +14,9 @@
   border: none;
 
   transition: background-color 250ms ease;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
 }
 
 .btn:hover,
