@@ -1,7 +1,9 @@
+@import '../../stylesheet/variables.css';
 /*Mobile*/
 .background {
 	min-height: 100vh;
-	background-color: #e7eaf2c2;
+	/* background-color: #e7eaf2c2; */
+	background-color: var(--color-background-main);
 	filter: blur(0.25px);
 }
 

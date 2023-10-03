@@ -1,32 +1,35 @@
 /*Mobile*/
 
 .balance {
-	/* background-color: #ffffff; */
-
+	background-color: var(--color-background-white);
 	border-radius: 30px;
 	padding-top: 8px;
 	width: 280px;
 	height: 80px;
 }
+
 .balance__text {
-	color: #a6a6a6;
-	font-family: 'Circe';
+	color: var(--color-text-sixth);
+	font-family: var(--font-family-main);
 	font-style: normal;
 	font-weight: 400;
 	font-size: 12px;
 	padding-left: 32px;
-	padding-bottom: 12px;
+	padding-bottom: 1px;
 }
 .balance__amount {
-	color: #000000;
-	font-family: 'Poppins';
+	color: var(--color-text-main);
+	font-family: var(--font-family-sec);
 	font-weight: 700;
 	font-size: 30px;
 	line-height: 1.5;
-	padding-left: 32px;
 }
 .balance__currency {
-	font-weight: 400;
+	padding-left: 36px;
+	font-family: var(--color-text-main);
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 1.5;
 }
 
 /*Tablet*/

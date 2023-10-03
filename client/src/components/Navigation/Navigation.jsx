@@ -1,14 +1,14 @@
-import styles from "./Navigation.module.css";
-import { AiFillHome } from "react-icons/ai";
-import { BiStats } from "react-icons/bi";
-import { PiCurrencyDollarSimpleBold } from "react-icons/pi";
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
+import styles from './Navigation.module.css';
+import { AiFillHome } from 'react-icons/ai';
+import { BiStats } from 'react-icons/bi';
+import { PiCurrencyDollarSimpleBold } from 'react-icons/pi';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Navigation({ onClickCurrency }) {
 	return (
 		<div className={styles.navigation}>
-			<NavLink to="/home">
+			<NavLink to='/home'>
 				<div className={styles.navigation__icon_display}>
 					<div className={styles.navigation__item_blue}>
 						<AiFillHome />
@@ -16,7 +16,7 @@ function Navigation({ onClickCurrency }) {
 					<div className={styles.navigation__item_home}>Home</div>
 				</div>
 			</NavLink>
-			<NavLink to="/statistics">
+			<NavLink to='/statistics'>
 				<div className={styles.navigation__icon_display}>
 					<div className={styles.navigation__item}>
 						<BiStats />
