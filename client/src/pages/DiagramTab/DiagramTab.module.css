@@ -1,8 +1,6 @@
 .container {
 	display: flex;
 	flex-direction: column;
-	padding-top: 40px;
-	/* background-color: #e7eaf2; */
 
 	@media sreen and (min-width: 768px) {
 		flex-direction: row;
@@ -23,13 +21,17 @@
 }
 
 .diagramTitle {
-	font-family: 'Poppins';
+	color: var(--color-text-main);
+	font-family: var(--font-family-sec);
 	font-size: 30px;
 	font-style: normal;
 	font-weight: 400;
 	margin-bottom: 8px;
-	@media (mmin-width: 768px) {
-		text-align: center;
+	line-height: normal;
+	@media (min-width: 768px) {
 		margin-bottom: 20px;
+	}
+	@media (min-width: 1280px) {
+		margin-left: 15px;
 	}
 }

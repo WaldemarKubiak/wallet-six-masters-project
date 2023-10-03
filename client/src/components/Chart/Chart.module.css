@@ -9,20 +9,22 @@
 .balance {
 	color: #000;
 	text-align: center;
-	font-family: Circe;
+	font-family: var(--font-family-main);
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
 	position: absolute;
 	top: 45%;
-	left: 42%;
+	left: 36%;
 }
 
 @media screen and (min-width: 768px) {
 	.doughnut {
 		width: 336px;
 		height: 336px;
+		margin-bottom: none;
+		/* margin-right: 32px; */
 	}
 }
 

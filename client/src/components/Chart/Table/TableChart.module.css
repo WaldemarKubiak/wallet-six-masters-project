@@ -17,8 +17,8 @@
 	border: 2px solid #000;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-	color: #000;
-	font-family: 'Circe';
+	color: var(--color-text-main);
+	font-family: var(--font-family-main);
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
@@ -65,23 +65,23 @@
 }
 
 .statisticsList {
-	color: #000;
+	color: var(--color-text-main);
 	width: 280px;
 	background-color: transparent;
 }
 
 .header {
 	display: flex;
-	color: #000;
+	color: var(--color-text-main);
 	width: 100%;
 	justify-content: space-between;
 	border-radius: 30px;
-	background: #fff;
+	background: var(--color-background-white);
 }
 
 .headerItem {
-	color: #000;
-	font-family: 'Circe';
+	color: var(--color-text-main);
+	font-family: var(--color-text-main);
 	font-size: 18px;
 	font-style: normal;
 	font-weight: 700;
@@ -124,20 +124,23 @@
 	display: flex;
 	flex-direction: column;
 	gap: 28px;
-	margin-bottom: 30px;
+	/* margin-bottom: 30px; */
 }
 
 .listItem {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 16px 20px;
+	padding: 14px 20px;
+	stroke-width: 1px;
 	border-bottom: 1px solid #dcdcdf;
+	stroke: #dcdcdf;
+	filter: drop-shadow(0px 1px 0px rgba(255, 255, 255, 0.6));
 }
 
 .category {
-	color: #000;
-	font-family: 'Circe';
+	color: var(--color-text-main);
+	font-family: var(--font-family-main);
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
@@ -149,7 +152,8 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
+	gap: 17px;
+	margin-top: 16px;
 }
 
 .resultsTitle,
@@ -157,19 +161,20 @@
 .resultsIncome {
 	font-weight: 700;
 	font-size: 16px;
+	padding: 14px 20px;
 }
 
 .resultsExpenses {
-	color: #ff6596;
+	color: var(--color-background-pink);
 }
 
 .resultsIncome {
-	color: #24cca7;
+	color: var(--color-background-turquoise);
 }
 
 @media screen and (min-wdth: 768px) {
 	.statisticsList {
-		width: 336px;
+		max-width: 336px;
 	}
 }
 

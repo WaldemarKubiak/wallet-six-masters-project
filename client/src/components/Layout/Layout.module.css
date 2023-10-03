@@ -2,13 +2,12 @@
 /*Mobile*/
 .background {
 	min-height: 100vh;
-	/* background-color: #e7eaf2c2; */
 	background-color: var(--color-background-main);
 	filter: blur(0.25px);
 }
 
 .header {
-	background-color: #fff;
+	background-color: var(--color-background-white);
 }
 
 .dashboard {
@@ -19,10 +18,11 @@
 	padding: 32px 32px;
 }
 .dashboard__navigation {
-	margin-bottom: 15px;
+	margin-bottom: 40px;
 }
 .dashboard__balance {
 	margin-bottom: 32px;
+	display: none;
 }
 .dashboard__currency {
 	display: none;
@@ -51,6 +51,15 @@
 		padding: 0;
 		column-gap: 32px;
 	}
+
+	.dashboard__navigation {
+		margin-bottom: 27px;
+	}
+	.dashboard__balance {
+		margin-bottom: 32px;
+		display: block;
+	}
+
 	.dashboard__currency {
 		display: contents;
 	}
@@ -59,10 +68,7 @@
 		bottom: 40px;
 		right: 40px;
 	}
-	/* .balancecontent {
-		display: flex;
-		gap: 32px;
-	} */
+
 	.navigationBox {
 		display: flex;
 		gap: 32px;

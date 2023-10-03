@@ -42,7 +42,7 @@ const Chart = ({ dataToRender }) => {
 		],
 	};
 
-	const [balance, setBalance] = useState();
+	const [balance, setBalance] = useState(null);
 	const token = useSelector(selectUserToken);
 	// console.log(token);
 
@@ -57,8 +57,6 @@ const Chart = ({ dataToRender }) => {
 				}
 			);
 			setBalance(response.data.data.balance);
-			console.log(response);
-			console.log(balance);
 		}
 		if (token);
 		fetch();
@@ -91,7 +89,14 @@ const Chart = ({ dataToRender }) => {
 	return (
 		<div className={css.doughnut}>
 			<Doughnut data={data} options={options} plugins={[textCenter]}></Doughnut>
-			<p className={css.balance}>${balance}</p>
+			{balance !== null && (
+				<p className={css.balance}>
+					${' '}
+					{balance
+						.toLocaleString('en-US', { minimumFractionDigits: 2 })
+						.replace(',', ' ')}
+				</p>
+			)}
 		</div>
 	);
 };

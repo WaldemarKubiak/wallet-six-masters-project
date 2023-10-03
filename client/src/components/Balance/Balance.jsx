@@ -7,7 +7,7 @@ import { selectUserToken } from '../../redux/user/userSelectors';
 import { selectAddedTransaction } from '../../redux/finance/financeSelectors';
 
 function Balance() {
-	const [balance, setBalance] = useState();
+	const [balance, setBalance] = useState(null);
 	const token = useSelector(selectUserToken);
 	const addedBalance = useSelector(selectAddedTransaction);
 
@@ -17,7 +17,7 @@ function Balance() {
 		};
 		window.addEventListener('logout', handleLogout);
 
-		async function fetch() {
+		async function fetchData() {
 			if (token) {
 				try {
 					const response = await axios.get(
@@ -38,7 +38,7 @@ function Balance() {
 			}
 		}
 
-		fetch();
+		fetchData();
 
 		return () => {
 			window.removeEventListener('logout', handleLogout);
@@ -49,7 +49,12 @@ function Balance() {
 		<div className={styles.balance}>
 			<div className={styles.balance__text}>YOUR BALANCE</div>
 			<div className={styles.balance__amount}>
-				<span className={styles.balance__currency}>$</span> {balance}
+				<span className={styles.balance__currency}>$</span>{' '}
+				{balance !== null
+					? balance
+							.toLocaleString('en-US', { minimumFractionDigits: 2 })
+							.replace(',', ' ')
+					: 'Loading...'}
 			</div>
 		</div>
 	);
