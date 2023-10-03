@@ -1,101 +1,101 @@
 .tablesList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 .tableItem {
-  width: 100%;
-  border-radius: 5px;
+	width: 100%;
+	border-radius: 5px;
 
-  background-color: white;
+	background-color: var(--color-background-main);
 }
 
 .tableItem:nth-child(odd) {
-  border-left: 5px solid #ff6596;
+	border-left: 5px solid var(--color-background-pink);
 }
 .tableItem:nth-child(even) {
-  border-left: 5px solid #24cca7;
+	border-left: 5px solid var(--color-background-turquoise);
 }
 .dataItem {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 20px;
 
-  border-bottom: 1px solid #dcdcdf;
+	border-bottom: 1px solid #dcdcdf;
 }
 .dataItem:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 .dataName {
-  color: #000;
-  font-family: 'Circe';
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+	color: #000;
+	font-family: var(--font-family-main);
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
 }
 .dataVal {
-  color: #000;
-  text-align: right;
-  font-family: 'Circe';
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+	color: #000;
+	text-align: right;
+	font-family: var(--font-family-main);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
 }
 .button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  text-align: center;
+	background-color: transparent;
+	border: none;
+	color: var(--color-text-fifth);
+	text-align: center;
 
-  font-family: 'Circe';
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  border-radius: 18px;
-  background: #24cca7;
+	font-family: var(--font-family-main);
+	color: var(--color-text-fifth);
+	text-align: center;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	border-radius: 18px;
+	background: #24cca7;
 
-  transition: background-color 250ms ease;
+	transition: background-color 250ms ease;
 }
 .button:hover,
 .button:focus {
-  background: #1b977c;
+	background: #1b977c;
 }
 .buttonEdit {
-  background-color: transparent;
-  border: none;
-  color: black;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+	background-color: transparent;
+	border: none;
+	color: black;
+	display: flex;
+	align-items: center;
+	gap: 5px;
 
-  color: rgba(0, 0, 0, 0.8);
-  text-align: center;
-  font-family: Circe;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 0.28px;
+	color: rgba(0, 0, 0, 0.8);
+	text-align: center;
+	font-family: Circe;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0.28px;
 
-  padding: 0;
+	padding: 0;
 
-  transition: background-color 250ms ease;
+	transition: background-color 250ms ease;
 }
 .buttonEdit:hover,
 .buttonEdit:focus {
-  color: #1b977c;
+	color: #1b977c;
 }
 
-.isSum {
-  color: #24cca7;
-}
 .noSum {
-  color: #ff6596;
+	color: var(--color-background-pink);
+}
+.isSum {
+	color: var(--color-background-turquoise);
 }

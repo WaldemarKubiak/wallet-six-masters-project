@@ -1,57 +1,69 @@
 /*Mobile*/
 
 .dashboard {
-  background-color: #e7eaf2;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 32px 32px;
+	background-color: #e7eaf2;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 32px 32px;
 }
 .dashboard__navigation {
-  margin-bottom: 15px;
+	margin-bottom: 40px;
 }
 .dashboard__balance {
-  margin-bottom: 32px;
+	margin-bottom: 32px;
 }
 .dashboard__currency {
-  display: none;
+	display: none;
 }
 .dashboard__btnNewTransWrapper {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
 }
+
+.btnModal {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+
 /*Tablet*/
 @media screen and (min-width: 768px) {
-  .dashboard {
-    padding: 32px 32px;
-    column-gap: 32px;
-  }
-  .dashboard__content {
-    padding: 0;
-    column-gap: 32px;
-  }
-  .dashboard__currency {
-    display: contents;
-  }
-  .dashboard__btnNewTransWrapper {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-  }
+	.dashboard {
+		padding: 32px 32px;
+		column-gap: 32px;
+	}
+	.dashboard__content {
+		padding: 0;
+		column-gap: 32px;
+	}
+	.dashboard__currency {
+		display: contents;
+	}
+	.dashboard__btnNewTransWrapper {
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+	}
 }
 
 /*Desktop*/
 @media screen and (min-width: 1280px) {
-  .dashboard_desktop {
-    display: flex;
-  }
-  .dashboard {
-    padding: 40px 16px;
-    flex-direction: column;
-    margin: 0 auto;
-  }
-  .dashboard__navigation {
-    width: 480px;
-  }
+	.dashboard_desktop {
+		display: flex;
+	}
+	.dashboard {
+		padding: 40px 16px;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+	.dashboard__navigation {
+		width: 480px;
+	}
+	.btnModal {
+		position: fixed;
+		right: 40px;
+		bottom: 40px;
+	}
 }

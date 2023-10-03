@@ -1,0 +1,132 @@
+@import '../../stylesheet/variables.css';
+/*Mobile*/
+.background {
+	min-height: 100vh;
+	background-color: var(--color-background-main);
+	filter: blur(0.25px);
+}
+
+.header {
+	background-color: var(--color-background-white);
+}
+
+.dashboard {
+	/* background-color: #e7eaf2; */
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 32px 32px;
+}
+.dashboard__navigation {
+	margin-bottom: 40px;
+}
+.dashboard__balance {
+	margin-bottom: 32px;
+	display: none;
+}
+.dashboard__currency {
+	display: none;
+}
+.dashboard__btnNewTransWrapper {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+
+.homeScreenBox__pinkellipse {
+	display: none;
+}
+
+.homeScreenBox__purpellipse {
+	display: none;
+}
+
+/*Tablet*/
+@media screen and (min-width: 768px) {
+	.dashboard {
+		padding: 32px 32px;
+		column-gap: 32px;
+	}
+	.dashboard__content {
+		padding: 0;
+		column-gap: 32px;
+	}
+
+	.dashboard__navigation {
+		margin-bottom: 27px;
+	}
+	.dashboard__balance {
+		margin-bottom: 32px;
+		display: block;
+	}
+
+	.dashboard__currency {
+		display: contents;
+	}
+	.dashboard__btnNewTransWrapper {
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+	}
+
+	.navigationBox {
+		display: flex;
+		gap: 32px;
+	}
+	.homeScreenBox__pinkellipse {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: -1;
+		filter: blur(15px);
+	}
+
+	.homeScreenBox__purpellipse {
+		display: block;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		z-index: -1;
+		filter: blur(15px);
+	}
+}
+
+/*Desktop*/
+@media screen and (min-width: 1280px) {
+	.dashboard_desktop {
+		display: flex;
+	}
+
+	.dashboard__content {
+		flex-direction: row;
+		border-right: solid 1px #c7c5d1;
+		width: 420px;
+	}
+
+	.dashboard {
+		padding: 40px 16px;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+	.dashboard__navigation {
+		width: 480px;
+	}
+	.layout {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		gap: 69px;
+	}
+
+	.outlet {
+		width: 750px;
+		z-index: 10;
+	}
+
+	.navigationBox {
+		display: block;
+		gap: none;
+	}
+}

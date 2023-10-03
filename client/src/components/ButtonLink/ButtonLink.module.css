@@ -1,36 +1,36 @@
 .btnLink {
-  color: #4a56e2;
-  /* font-family: Circe; */
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.4;
-  letter-spacing: 2px;
-  text-align: center;
-  display: block;
-  border: solid 1px #4a56e2;
-  border-radius: 20px;
-  padding: 13px 0;
+	color: var(--color-btn-link-main);
+	font-family: var(--font-family-main);
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.4;
+	letter-spacing: 2px;
+	text-align: center;
+	display: block;
+	border: solid 1px var(--color-btn-link-main);
+	border-radius: 20px;
+	padding: 13px 0;
 }
 
 .btnLink:hover {
-  color: #363fab;
-  border-color: #363fab;
+	color: var(--color-btn-link-main-focus);
+	border-color: var(--color-btn-link-main-focus);
 }
 
 .btnLink:active {
-  color: #363fab;
-  border-color: #363fab;
+	color: var(--color-btn-link-main-focus);
+	border-color: var(--color-btn-link-main-focus);
 }
 
 .btnLink:focus {
-  color: #363fab;
-  border-color: #363fab;
-  stroke: none;
+	color: var(--color-btn-link-main-focus);
+	border-color: var(--color-btn-link-main-focus);
+	stroke: none;
 }
 
 @media screen and (min-width: 768px) {
-  .btnLink {
-    width: 300px;
-  }
+	.btnLink {
+		width: 300px;
+	}
 }

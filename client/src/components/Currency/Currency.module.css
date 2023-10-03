@@ -1,7 +1,7 @@
 /*Mobile*/
 .currency {
 	position: relative;
-	background-color: #4a56e2;
+	background-color: var(--color-btn-link-main);
 	border-radius: 30px;
 	min-height: 174px;
 	width: 280px;
@@ -19,12 +19,12 @@
 	background-color: rgba(255, 255, 255, 0.2);
 }
 .currency__tbl_title {
-	font-family: "Circe";
+	font-family: var(--font-family-main);
 	font-style: normal;
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 1.5;
-	color: #ffffff;
+	color: var(--color-text-fifth);
 	padding-top: 12px;
 	text-align: left;
 	padding-bottom: 12px;
@@ -37,12 +37,12 @@
 	text-align: right;
 }
 .currency__tbl_item {
-	font-family: "Circe";
+	font-family: var(--font-family-main);
 	font-style: normal;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.5;
-	color: #ffffff;
+	color: var(--color-text-fifth);
 	padding: 12px 20px;
 }
 .currency__tbl_item:nth-child(2) {
