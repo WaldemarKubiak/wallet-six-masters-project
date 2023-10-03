@@ -1,34 +1,17 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-// import Notiflix from "notiflix";
-
-// import ButtonAdd from "../ButtonAdd/ButtonAdd";
-// import ButtonCancel from "../../components/ButtonCancel/ButtonCancel";
 import css from '../EditTransactionModal/EditTransactionModal.module.css';
-
-// import React from "react";
-// import TransactionsDropdown from "../TransactionsDropdown/TransactionsDropdown";
-
 import FormInput from '../FormInput/FormInput';
 import IncomeBar from '../IncomeBar/IncomeBar';
 import TextArea from '../TextArea/TextArea';
 import DateCalendar from '../DateCalendar/DateCalendar';
-
-// import indicative from "indicative";
 import { useDispatch } from 'react-redux';
-
 import { editTransaction } from '../../redux/finance/financeOperations';
 
-// Make sure to set appElement to the root of your app for accessibility
 Modal.setAppElement('#root');
-// const onEditTransaction = true;
 
 const EditTransactionModal = () => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
-
-	// const openModal = () => {
-	// 	setModalIsOpen(true);
-	// };
 
 	const closeModal = () => {
 		setModalIsOpen(false);
@@ -68,32 +51,8 @@ const EditTransactionModal = () => {
 		closeModal();
 	};
 
-	// const options = [
-	//   "Main expenses",
-	//   "Products",
-	//   "Car",
-	//   "Self care",
-	//   "Child care",
-	//   "Household products",
-	//   "Education",
-	//   "Leisure",
-	//   "Entertainment",
-	//   "Other expenses",
-	// ];
-
-	// function Select() {
-	//   return (
-	//     <div className={css.Select}>
-	//       <TransactionsDropdown options={options} />
-	//     </div>
-	//   );
-	// }
-
-	// const isExpense = true;
-
 	return (
 		<div>
-			{/* <button onClick={openModal}>Edit</button> */}
 			<Modal
 				className={css.ModalAddTransaction}
 				isOpen={modalIsOpen}
@@ -172,12 +131,3 @@ const EditTransactionModal = () => {
 };
 
 export default EditTransactionModal;
-
-// <div className="modal-buttons">
-//  <button onClick={handleAddTransaction}>Add</button>
-//  <button onClick={closeModal}>Cancel</button>
-// </div>;
-
-// onClick={() => closeModal}
-
-//   <ButtonCancel onClick={closeModal} text="Cancel" />

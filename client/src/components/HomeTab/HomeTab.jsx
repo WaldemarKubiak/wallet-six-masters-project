@@ -1,7 +1,6 @@
 import css from './HomeTab.module.css';
 import { MdEdit } from 'React-icons/md';
 import { useSelector } from 'react-redux';
-import { selectFinancesIsLoading } from '../../redux/finance/financeSelectors';
 import { selectGetFinances } from '../../redux/finance/financeSelectors';
 import { useDispatch } from 'react-redux';
 import { importEditTransactionData } from '../../redux/finance/finanseSlice';
@@ -9,35 +8,6 @@ import { importEditTransactionData } from '../../redux/finance/finanseSlice';
 const HomeTab = () => {
 	const dispatch = useDispatch();
 	const financeData = useSelector(selectGetFinances);
-
-	// const financeData = [
-	// 	{
-	// 		date: '2023-09-29',
-	// 		income: true,
-	// 		category: 'Salary',
-	// 		comment: 'Monthly income',
-	// 		sum: 2500,
-	// 		id: 'abc123',
-	// 	},
-	// 	{
-	// 		date: '2023-09-28',
-	// 		income: false,
-	// 		category: 'Groceries',
-	// 		comment: 'Weekly grocery shopping',
-	// 		sum: 150,
-	// 		id: 'def456',
-	// 	},
-	// 	{
-	// 		date: '2023-09-27',
-	// 		income: false,
-	// 		category: 'Utilities',
-	// 		comment: 'Electricity bill',
-	// 		sum: 100,
-	// 		id: 'ghi789',
-	// 	},
-	// ];
-
-	const financesLoading = useSelector(selectFinancesIsLoading);
 
 	const handleEditFinance = id => {
 		const foundTransaction = financeData.find(element => element._id === id);
@@ -50,21 +20,16 @@ const HomeTab = () => {
 			sum: foundTransaction.sum,
 			id: foundTransaction._id,
 		};
-		console.log(data);
+		
 		dispatch(importEditTransactionData(data));
 	};
 
-	const handleDeleteFinance = id => {
-		//open delete modal with id of financial
-		//dispatch(DeleteFinal())
-	};
-
 	const cutDate = date => {
-		const year = date.slice(0, 10);
-		const time = date.slice(11, 16);
-
-		return `${year}`;
+		const options = { day: '2-digit', month: '2-digit', year: '2-digit' };
+		const formattedDate = new Date(date).toLocaleDateString(undefined, options);
+		return formattedDate;
 	};
+
 	return (
 		<div className={css.tableWrapper}>
 			<table className={css.table}>
@@ -81,7 +46,7 @@ const HomeTab = () => {
 				</thead>
 				{financeData.length > 0 ? (
 					<tbody>
-						{financeData.map((item, index) => (
+						{financeData.map(item => (
 							<tr key={item._id} className={css.tableRow}>
 								<td className={css.tableRowTd}>{cutDate(item.date)}</td>
 								<td className={css.tableRowTd}>{item.income ? '+' : '-'}</td>
@@ -103,7 +68,7 @@ const HomeTab = () => {
 								<td>
 									<button
 										className={css.button}
-										onClick={() => handleDeleteFinance(item._id)}>
+										onClick={() => handleEditFinance(item._id)}>
 										Delete
 									</button>
 								</td>

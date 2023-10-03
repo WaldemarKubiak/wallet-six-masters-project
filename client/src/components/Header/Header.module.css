@@ -1,91 +1,131 @@
 .homeScreen__imgBox {
-  display: none;
-  z-index: 10;
+	display: none;
+	z-index: 10;
 }
 
 .homeScreen__title {
-  margin: 0;
-  color: black;
-  text-align: center;
-  /* font-family: Poppins; */
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 1.5;
+	margin: 0;
+	color: black;
+	text-align: center;
+	/* font-family: Poppins; */
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 1.5;
 }
 
 .homeScreen__titleBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
 }
 
 .modalHeaderBox {
-  display: flex;
-  justify-content: space-between;
-  padding-inline: 20px;
-  height: 60px;
+	display: flex;
+	justify-content: space-between;
+	padding-inline: 20px;
+	height: 60px;
 }
 
 .userLogoutBlock {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+	display: flex;
+	gap: 10px;
+	align-items: center;
 }
 
 .addTransactionTitle {
-  font-family: Poppins;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.5;
-  text-align: center;
-  color: black;
+	font-family: Poppins;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 1.5;
+	text-align: center;
+	color: black;
 }
 
 .LogoutModalContent {
-  position: fixed;
-  z-index: 999999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-  height: 100%;
+	position: fixed;
+	z-index: 999999;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	width: 100%;
+	height: 100%;
 }
 
 .LogoutModal {
-  position: fixed;
-  z-index: 999999;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+	position: fixed;
+	z-index: 999999;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
 }
 
 .HeaderMainBox {
-  height: 60px;
+	height: 60px;
 }
 
 .exit {
-  display: none;
-  color: #bdbdbd;
+	display: none;
+	color: #bdbdbd;
 }
 
 .name {
-  color: #bdbdbd;
+	color: #bdbdbd;
+}
+
+.btnYes {
+	color: var(--color-text-fifth);
+	font-family: var(--font-family-main);
+	background-color: var(--color-text-fourth);
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 18px;
+	letter-spacing: 2px;
+	text-align: center;
+	margin-right: 30px;
+	border: solid 1px var(--color-btn-link-main);
+	border-radius: 20px;
+	padding: 13px 20px;
+}
+
+.btnYes:hover {
+	color: var(--color-btn-link-main-focus);
+	border-color: var(--color-btn-link-main-focus);
+}
+
+.btnNo {
+	color: var(--color-text-fifth);
+	font-family: var(--font-family-main);
+	background-color: var(--color-background-pink);
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 18px;
+	letter-spacing: 2px;
+	text-align: center;
+	margin-right: 30px;
+	border: solid 1px var(--color-btn-link-main);
+	border-radius: 20px;
+	padding: 13px 20px;
+}
+
+.btnNo:hover {
+	color: var(--color-btn-link-main-focus);
+	border-color: var(--color-btn-link-main-focus);
 }
 
 @media screen and (min-width: 768px) {
-  .exit {
-    display: block;
-  }
+	.exit {
+		display: block;
+	}
 
-  .name {
-    border-right: solid 2px #bdbdbd;
-    padding-right: 8px;
-  }
+	.name {
+		border-right: solid 2px #bdbdbd;
+		padding-right: 8px;
+	}
 }

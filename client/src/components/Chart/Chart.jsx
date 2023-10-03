@@ -44,7 +44,7 @@ const Chart = ({ dataToRender }) => {
 
 	const [balance, setBalance] = useState(null);
 	const token = useSelector(selectUserToken);
-	// console.log(token);
+	
 
 	useEffect(() => {
 		async function fetch() {

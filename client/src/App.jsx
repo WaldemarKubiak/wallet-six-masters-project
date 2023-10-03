@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-
 import { useAuth } from './hook/useAuth/useAuth';
 import { refreshUser } from './redux/user/userOperations';
 import { RestrictedRoute } from './components/RestrictedRoute';

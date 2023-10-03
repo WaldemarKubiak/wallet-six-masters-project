@@ -1,31 +1,18 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-// import Notiflix from 'notiflix';
 import PropTypes from 'prop-types';
 import css from '../ModalAddTransaction/ModalAddTransaction.module.css';
-
 import FormInput from '../FormInput/FormInput';
 import IncomeBar from '../../components/IncomeBar/IncomeBar';
 import TextArea from '../../components/TextArea/TextArea';
 import DateCalendar from '../../components/DateCalendar/DateCalendar';
-
-// import indicative from 'indicative';
 import { useDispatch } from 'react-redux';
-
 import { postTransactions } from '../../redux/finance/financeOperations';
-
 import { setIsModalAddTransactionOpen } from '../../redux/global/globalSlice';
 
 Modal.setAppElement('#root');
 
 const AddTransactionModal = ({ isOpen }) => {
-	// console.log(isOpen);
-	// const [modalIsOpen, setModalIsOpen] = useState(false);
-
-	// const openModal = () => {
-	//   setModalIsOpen(true);
-	// };
-
 	const closeModal = () => {
 		dispatch(setIsModalAddTransactionOpen(false));
 	};
@@ -46,15 +33,6 @@ const AddTransactionModal = ({ isOpen }) => {
 		e.preventDefault();
 		const form = e.currentTarget;
 
-		// const rules = {
-		//   amount: "required|min:1",
-		// };
-
-		// const data = {
-		//   amount: form.elements.amount.value,
-		// };
-
-		// indicative.validateAll(data, rules).then(function () {
 		dispatch(
 			postTransactions({
 				date: Date.parse(
@@ -70,14 +48,6 @@ const AddTransactionModal = ({ isOpen }) => {
 		);
 
 		form.reset();
-
-		// .catch(function (err) {
-		//   Notiflix.Notify.init({
-		//     timeout: 15000,
-		//   });
-		//   Notiflix.Notify.failure("Amount is required as a number.");
-		//   console.error(err);
-		// });
 
 		closeModal();
 	};
@@ -184,15 +154,6 @@ const AddTransactionModal = ({ isOpen }) => {
 
 export default AddTransactionModal;
 
-// <div className="modal-buttons">
-//  <button onClick={handleAddTransaction}>Add</button>
-//  <button onClick={closeModal}>Cancel</button>
-// </div>;
-
-// onClick={() => closeModal}
-
-//   <ButtonCancel onClick={closeModal} text="Cancel" />
-
 AddTransactionModal.propTypes = {
-	isOpen: PropTypes.bool.isRequired, // Dodaj walidację dla właściwości "isOpen"
+	isOpen: PropTypes.bool.isRequired,
 };
