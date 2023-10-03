@@ -12,20 +12,39 @@ function Balance() {
 	const addedBalance = useSelector(selectAddedTransaction);
 
 	useEffect(() => {
+		const handleLogout = () => {
+			setBalance(null);
+		};
+		window.addEventListener('logout', handleLogout);
+
 		async function fetch() {
-			const response = await axios.get(
-				'https://wallet-project-4dhb.onrender.com/api/transactions/stats/balance',
-				{
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
+			if (token) {
+				try {
+					const response = await axios.get(
+						'https://wallet-project-4dhb.onrender.com/api/transactions/stats/balance',
+						{
+							headers: {
+								Authorization: `Bearer ${token}`,
+							},
+						}
+					);
+					setBalance(response.data.data.balance);
+				} catch (error) {
+					console.error(error);
+					setBalance(null);
 				}
-			);
-			setBalance(response.data.data.balance);
+			} else {
+				setBalance(null);
+			}
 		}
-		if (token);
+
 		fetch();
-	}, [addedBalance]);
+
+		return () => {
+			window.removeEventListener('logout', handleLogout);
+		};
+	}, [addedBalance, token]);
+
 	return (
 		<div className={styles.balance}>
 			<div className={styles.balance__text}>YOUR BALANCE</div>

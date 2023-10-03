@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
-import Notiflix from 'notiflix';
-
+// import Notiflix from 'notiflix';
+import PropTypes from 'prop-types';
 import css from '../ModalAddTransaction/ModalAddTransaction.module.css';
 
 import FormInput from '../FormInput/FormInput';
@@ -9,7 +9,7 @@ import IncomeBar from '../../components/IncomeBar/IncomeBar';
 import TextArea from '../../components/TextArea/TextArea';
 import DateCalendar from '../../components/DateCalendar/DateCalendar';
 
-import indicative from 'indicative';
+// import indicative from 'indicative';
 import { useDispatch } from 'react-redux';
 
 import { postTransactions } from '../../redux/finance/financeOperations';
@@ -19,6 +19,7 @@ import { setIsModalAddTransactionOpen } from '../../redux/global/globalSlice';
 Modal.setAppElement('#root');
 
 const AddTransactionModal = ({ isOpen }) => {
+	// console.log(isOpen);
 	// const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	// const openModal = () => {
@@ -191,3 +192,7 @@ export default AddTransactionModal;
 // onClick={() => closeModal}
 
 //   <ButtonCancel onClick={closeModal} text="Cancel" />
+
+AddTransactionModal.propTypes = {
+	isOpen: PropTypes.bool.isRequired, // Dodaj walidację dla właściwości "isOpen"
+};

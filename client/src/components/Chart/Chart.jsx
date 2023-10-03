@@ -62,7 +62,7 @@ const Chart = ({ dataToRender }) => {
 		}
 		if (token);
 		fetch();
-	}, [balance]);
+	}, [balance, token]);
 
 	const textCenter = {
 		id: 'textCenter',
