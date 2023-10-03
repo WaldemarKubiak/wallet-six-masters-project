@@ -113,7 +113,11 @@ const TableChart = ({ dataToRender }) => {
 										}}></div>
 									<p className={css.category}>{category}</p>
 								</div>
-								<p>{total.toFixed(2)}</p>
+								<p>
+									{total
+										.toLocaleString('en-US', { minimumFractionDigits: 2 })
+										.replace(',', ' ')}
+								</p>
 							</li>
 						</ul>
 					))}
