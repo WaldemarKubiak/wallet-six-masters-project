@@ -1,6 +1,5 @@
 import { MdEdit } from 'React-icons/md';
 import { useSelector } from 'react-redux';
-import { selectFinancesIsLoading } from '../../redux/finance/financeSelectors';
 import { selectGetFinances } from '../../redux/finance/financeSelectors';
 import { useDispatch } from 'react-redux';
 import css from './HomeTabMobile.module.css';
@@ -10,11 +9,7 @@ import { importEditTransactionData } from '../../redux/finance/finanseSlice';
 export const HomeTabMobile = () => {
 	const dispatch = useDispatch();
 	const financeData = useSelector(selectGetFinances);
-	const financesLoading = useSelector(selectFinancesIsLoading);
 
-	// const sortedData = financeData.sort(
-	// 	(a, b) => new Date(b.date) - new Date(a.date)
-	// );
 	const handleEditFinance = id => {
 		const foundTransaction = financeData.find(element => element._id === id);
 
@@ -26,21 +21,16 @@ export const HomeTabMobile = () => {
 			sum: foundTransaction.sum,
 			id: foundTransaction._id,
 		};
-		console.log(data);
+
 		dispatch(importEditTransactionData(data));
 	};
 
-	const handleDeleteFinance = id => {
-		//open delete modal with id of financial
-		//dispatch(DeleteFinal())
-	};
-
 	const cutDate = date => {
-		const year = date.slice(0, 10);
-		const time = date.slice(11, 16);
-
-		return `${year}`;
+		const options = { day: '2-digit', month: '2-digit', year: '2-digit' };
+		const formattedDate = new Date(date).toLocaleDateString(undefined, options);
+		return formattedDate;
 	};
+
 	return (
 		<ul className={css.tablesList}>
 			{financeData.length > 0 ? (
@@ -76,7 +66,7 @@ export const HomeTabMobile = () => {
 								<li className={css.dataItem}>
 									<button
 										className={css.button}
-										onClick={() => handleDeleteFinance(item._id)}>
+										onClick={() => handleEditFinance(item._id)}>
 										Delete
 									</button>
 									<button
