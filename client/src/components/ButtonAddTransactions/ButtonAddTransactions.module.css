@@ -5,15 +5,15 @@
 	font-size: 45px;
 	line-height: 45px;
 	font-weight: 400;
-	color: #fff;
-	background-color: rgba(0, 128, 0, 0.644);
+	color: var(--color-btn-second);
+	background-color: var(--color-background-turquoise);
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border: none;
 	outline: none;
-
+	flex-shrink: 0;
 	transition: background-color 250ms ease;
 }
 
